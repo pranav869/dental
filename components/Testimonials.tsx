@@ -7,34 +7,34 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const reviews = [
   {
-    name: "Priya S",
-    initials: "PS",
+    name: "Riya Ishan",
+    initials: "RI",
     location: "Chennai",
-    treatment: "Dental Treatment",
+    treatment: "Root Canal Treatment",
     rating: 5,
-    date: "2024",
+    date: "2 months ago",
     review:
-      "Very painless treatment. Doctor explained everything clearly. I was nervous before coming but the experience was really comfortable. Highly recommend Care N Cure to everyone.",
+      "I treated here for my 4yrs 10 mth baby, for root canal treatment first i was nervous, after that Dr. Basheera mam spoke to me very kindly.... They give well treatment to my son. Their kindness give to confidence to us. Now My son is cured I am so happy. Very well clinic and affordable price to the treatment. Thank you so much mam.",
   },
   {
-    name: "Karthik R",
-    initials: "KR",
+    name: "Roslin D",
+    initials: "RD",
     location: "Chennai",
-    treatment: "Dental Treatment",
+    treatment: "Teeth Cleaning",
     rating: 5,
-    date: "2024",
+    date: "4 years ago",
     review:
-      "Affordable and very professional service. Highly recommend. The clinic is clean and the staff are friendly. Got great results and the doctor was very thorough in explaining the procedure.",
+      "Dr. Basheera has done a fabulous job by cleaning my decades and pasted. Nicely done. Well satisfied and impressed by her treatment. Dedicated person. She has given me wow experience. Highly recommend dr she is. Thank you very much doctor.",
   },
   {
-    name: "Meena V",
-    initials: "MV",
+    name: "Ashok Kumar",
+    initials: "AK",
     location: "Chennai",
-    treatment: "Dental Treatment",
+    treatment: "Root Canal Treatment",
     rating: 5,
-    date: "2024",
+    date: "3 years ago",
     review:
-      "Friendly doctor and comfortable clinic experience. The treatment was completely pain-free. I finally found a dentist I can trust. Will definitely be coming back for regular check-ups.",
+      "Great hospitality and gesture! Went lot of dental clinic before but Dr. Basheera explained a RCT very well and treated without any pain. Highly recommended to all. Best part is cost effective.",
   },
 ];
 
