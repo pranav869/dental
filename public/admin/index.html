@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login — Care N Cure Dental</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="logo-icon">🦷</div>
+        <h1>Care N Cure</h1>
+        <p>Multi-Speciality Dental Centre</p>
+        <span class="admin-badge">Admin Panel</span>
+      </div>
+
+      <form id="loginForm" autocomplete="off">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" required />
+        </div>
+        <div id="loginError" class="error-msg hidden">
+          ❌ Invalid username or password. Try again.
+        </div>
+        <button type="submit" class="btn-primary btn-full">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    if (sessionStorage.getItem('adminLoggedIn') === 'true') {
+      window.location.href = 'dashboard.html';
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const errorEl = document.getElementById('loginError');
+
+      if (username === 'admin' && password === 'admin123') {
+        sessionStorage.setItem('adminLoggedIn', 'true');
+        window.location.href = 'dashboard.html';
+      } else {
+        errorEl.classList.remove('hidden');
+        document.getElementById('password').value = '';
+      }
+    });
+  </script>
+</body>
+</html>

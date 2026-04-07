@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Care N Cure Admin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-page">
+
+  <!-- ── TOP BAR ─────────────────────────────────────── -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      <span class="logo-icon">🦷</span>
+      <div>
+        <h1>Care N Cure <span>Admin</span></h1>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span class="admin-label">👤 admin</span>
+      <button class="btn-logout" id="btnLogout">Logout</button>
+    </div>
+  </header>
+
+  <!-- ── MAIN CONTENT ────────────────────────────────── -->
+  <main class="main-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+      <div>
+        <h2>Patient Bookings</h2>
+        <p>Manage all appointments from Care N Cure Dental Centre</p>
+      </div>
+    </div>
+
+    <!-- Stats cards -->
+    <div class="stats-grid">
+      <div class="stat-card blue">
+        <div class="stat-label">Total Bookings</div>
+        <div class="stat-value" id="statTotal">—</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="stat-label">Pending</div>
+        <div class="stat-value" id="statPending">—</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-label">Completed</div>
+        <div class="stat-value" id="statCompleted">—</div>
+      </div>
+      <div class="stat-card purple">
+        <div class="stat-label">Today's Bookings</div>
+        <div class="stat-value" id="statToday">—</div>
+      </div>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <label>Filter:</label>
+      <button class="btn-outline active" id="btnAll">All Bookings</button>
+      <button class="btn-outline" id="btnToday">Today</button>
+      <div class="filter-divider"></div>
+      <label for="filterDate">Pick Date:</label>
+      <input type="date" id="filterDate" />
+    </div>
+
+    <!-- Bookings table card -->
+    <div class="table-card">
+      <div class="table-card-header">
+        <h3>Bookings</h3>
+        <span id="bookingCount">Loading...</span>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Patient Name</th>
+              <th>Phone</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Problem / Reason</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr>
+              <td colspan="7">
+                <div class="state-container">
+                  <div class="spinner"></div>
+                  <p>Loading bookings...</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ── Firebase SDKs (compat — no bundler needed) ──── -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase config (fill in your values in firebase-config.js) -->
+  <script src="firebase-config.js"></script>
+
+  <!-- Dashboard logic -->
+  <script src="dashboard.js"></script>
+
+</body>
+</html>
