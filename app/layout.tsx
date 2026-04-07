@@ -9,14 +9,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SmileCare Dental Clinic | Advanced Dental Care You Can Trust",
+  title: "Care N Cure Multi-Speciality Dental Centre | Painless & Advanced Dental Care in Chennai",
   description:
-    "Expert dental care in Chennai. Teeth whitening, implants, root canal, braces, and more. Book your appointment today.",
+    "Trusted dental clinic in Puzhal, Chennai. Pain-free treatments for teeth cleaning, implants, root canal, braces & cosmetic dentistry. 8+ years experience. Call +91 97899 69383.",
   keywords:
-    "dental clinic, dentist, teeth whitening, dental implants, root canal, braces, Chennai",
+    "dental clinic Puzhal, dentist Chennai, teeth cleaning, dental implants, root canal treatment, braces Chennai, Care N Cure dental",
   openGraph: {
-    title: "SmileCare Dental Clinic",
-    description: "Advanced Dental Care You Can Trust",
+    title: "Care N Cure Multi-Speciality Dental Centre",
+    description: "Painless & Advanced Dental Care You Can Trust",
     type: "website",
   },
 };

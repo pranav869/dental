@@ -12,26 +12,26 @@ import {
 } from "lucide-react";
 
 const credentials = [
-  { label: "BDS — Madras Medical College", year: "2005" },
-  { label: "MDS (Prosthodontics) — SRM Dental College", year: "2008" },
-  { label: "FICOI — International Congress of Oral Implantologists", year: "2012" },
-  { label: "Invisalign Certified Provider", year: "2015" },
+  { label: "BDS — Qualified Dental Surgeon", year: "" },
+  { label: "Multi-Speciality Dental Practice", year: "" },
+  { label: "Advanced Painless Treatment Techniques", year: "" },
+  { label: "Modern Dental Equipment & Technology", year: "" },
 ];
 
 const highlights = [
-  { icon: Clock, value: "15+", label: "Years of Practice" },
+  { icon: Clock, value: "8+", label: "Years of Practice" },
   { icon: Star, value: "4.9", label: "Patient Rating" },
-  { icon: Award, value: "20+", label: "Certifications" },
-  { icon: GraduationCap, value: "5,000+", label: "Procedures Done" },
+  { icon: Award, value: "50+", label: "Happy Patients" },
+  { icon: GraduationCap, value: "100%", label: "Painless Focus" },
 ];
 
 const specializations = [
-  "Cosmetic & Restorative Dentistry",
-  "Dental Implantology",
-  "Orthodontics & Clear Aligners",
-  "Oral Surgery & Root Canal Specialist",
-  "Pediatric Dentistry",
-  "Laser Dentistry",
+  "Painless Treatments",
+  "Teeth Cleaning & Prevention",
+  "Root Canal Treatment",
+  "Dental Implants",
+  "Braces & Clear Aligners",
+  "Cosmetic Dentistry",
 ];
 
 export default function DoctorProfile() {
@@ -52,11 +52,11 @@ export default function DoctorProfile() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-14"
         >
-          <p className="section-label mb-3">Meet Your Doctor</p>
-          <h2 className="section-title mb-4">In Trusted Hands</h2>
+          <p className="section-label mb-3">About Us</p>
+          <h2 className="section-title mb-4">Why Patients Trust Us</h2>
           <p className="section-sub">
-            Board-certified, experienced, and genuinely passionate about your
-            dental health.
+            Care N Cure Multi-Speciality Dental Centre — trusted by families in
+            Puzhal, Chennai for over 8 years.
           </p>
         </motion.div>
 
@@ -127,10 +127,10 @@ export default function DoctorProfile() {
               {/* Name card overlay at bottom */}
               <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm px-6 py-4 border-t border-white/50">
                 <p className="font-bold text-neutral-900 text-lg">
-                  Dr. Priya Sharma
+                  Care N Cure Dental
                 </p>
                 <p className="text-primary-600 text-sm font-medium">
-                  BDS, MDS — Lead Dentist & Founder
+                  Multi-Speciality Dental Centre
                 </p>
                 <div className="flex items-center gap-1 mt-1">
                   {[1, 2, 3, 4, 5].map((s) => (
@@ -141,7 +141,7 @@ export default function DoctorProfile() {
                     />
                   ))}
                   <span className="text-xs text-neutral-500 ml-1">
-                    4.9 · 300+ reviews
+                    4.9 · 50+ reviews
                   </span>
                 </div>
               </div>
@@ -152,11 +152,11 @@ export default function DoctorProfile() {
               <div className="flex items-center gap-2 mb-1">
                 <Award size={16} className="text-primary-600" />
                 <span className="text-xs font-bold text-neutral-900">
-                  ISO Certified
+                  8+ Years
                 </span>
               </div>
               <p className="text-xs text-neutral-500 leading-tight">
-                Clinic meets international hygiene standards
+                Trusted dental care in Puzhal, Chennai
               </p>
             </div>
           </motion.div>
@@ -187,14 +187,13 @@ export default function DoctorProfile() {
 
             {/* About */}
             <div className="bg-white rounded-2xl border border-neutral-100 p-6 shadow-soft">
-              <h3 className="font-bold text-neutral-900 mb-3">About Dr. Priya</h3>
+              <h3 className="font-bold text-neutral-900 mb-3">About Care N Cure</h3>
               <p className="text-neutral-500 text-sm leading-relaxed">
-                With over 15 years of clinical experience, Dr. Priya Sharma
-                combines technical expertise with genuine compassion. She
-                completed her advanced training at India&#39;s premier institutions
-                and holds international certifications in implantology and
-                cosmetic dentistry. Her approach is simple: treat every patient
-                like family.
+                Care N Cure Multi-Speciality Dental Centre is a trusted dental
+                clinic in Puzhal, Chennai, known for providing painless
+                treatments and personalised care. With over 8 years of
+                experience, the clinic focuses on patient comfort, modern dental
+                technology, and clear treatment explanations.
               </p>
             </div>
 
@@ -202,7 +201,7 @@ export default function DoctorProfile() {
             <div className="bg-white rounded-2xl border border-neutral-100 p-6 shadow-soft">
               <h3 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
                 <GraduationCap size={18} className="text-primary-600" />
-                Education & Certifications
+                Our Standards & Approach
               </h3>
               <ul className="space-y-3">
                 {credentials.map((c) => (
@@ -242,7 +241,7 @@ export default function DoctorProfile() {
               className="btn-primary w-full sm:w-auto"
             >
               <Calendar size={16} />
-              Book Appointment with Dr. Priya
+              Book Your Appointment
             </button>
           </motion.div>
         </div>

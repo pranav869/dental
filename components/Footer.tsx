@@ -1,16 +1,13 @@
 "use client";
 
-import { Phone, Mail, MapPin, Heart } from "lucide-react";
+import { Phone, MapPin, Heart } from "lucide-react";
 
 const services = [
-  "Teeth Whitening",
-  "Dental Implants",
+  "Teeth Cleaning",
   "Root Canal Treatment",
-  "Braces & Clear Aligners",
-  "Dental Crowns",
-  "Tooth Extraction",
-  "Pediatric Dentistry",
-  "Oral Surgery",
+  "Dental Implants",
+  "Braces & Aligners",
+  "Cosmetic Dentistry",
 ];
 
 const quickLinks = [
@@ -44,36 +41,29 @@ export default function Footer() {
               </div>
               <div>
                 <span className="font-bold text-lg text-white leading-none block">
-                  SmileCare
+                  Care N Cure
                 </span>
                 <span className="text-xs text-primary-400 font-medium leading-none">
-                  Dental Clinic
+                  Dental Centre
                 </span>
               </div>
             </div>
             <p className="text-neutral-400 text-sm leading-relaxed mb-5">
-              Advanced Dental Care You Can Trust. Compassionate, modern dentistry
-              in the heart of Chennai.
+              Painless & Advanced Dental Care You Can Trust. Trusted by families
+              in Puzhal, Chennai for over 8 years.
             </p>
             {/* Contact in footer */}
             <div className="space-y-2.5">
               <a
-                href="tel:+919876543210"
+                href="tel:+919789969383"
                 className="flex items-center gap-2.5 text-sm text-neutral-400 hover:text-white transition-colors"
               >
                 <Phone size={14} className="text-primary-400" />
-                +91 98765 43210
-              </a>
-              <a
-                href="mailto:care@smilecaredental.in"
-                className="flex items-center gap-2.5 text-sm text-neutral-400 hover:text-white transition-colors"
-              >
-                <Mail size={14} className="text-primary-400" />
-                care@smilecaredental.in
+                +91 97899 69383
               </a>
               <div className="flex items-start gap-2.5 text-sm text-neutral-400">
                 <MapPin size={14} className="text-primary-400 mt-0.5 flex-shrink-0" />
-                <span>42, Gandhi Nagar Main Road, Adyar, Chennai – 600 020</span>
+                <span>St. Anthony&#39;s Hospital, 1st Cross Street, St Anthony Nagar Camp, Puzhal, Chennai – 600066</span>
               </div>
             </div>
           </div>
@@ -117,23 +107,19 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-4">Working Hours</h4>
             <div className="space-y-2 text-sm mb-6">
               <div className="flex justify-between text-neutral-400">
-                <span>Mon – Fri</span>
+                <span>Mon – Sat</span>
                 <span>9:00 AM – 7:00 PM</span>
               </div>
               <div className="flex justify-between text-neutral-400">
-                <span>Saturday</span>
-                <span>9:00 AM – 5:00 PM</span>
-              </div>
-              <div className="flex justify-between text-neutral-400">
                 <span>Sunday</span>
-                <span>10:00 AM – 2:00 PM</span>
+                <span>Contact for timings</span>
               </div>
             </div>
 
             {/* Certifications */}
             <h4 className="font-semibold text-white mb-3">Certifications</h4>
             <div className="flex flex-wrap gap-2">
-              {["ISO 9001", "IDA Member", "FICOI", "WHO Compliant"].map(
+              {["8+ Years", "Multi-Speciality", "Painless Care", "Puzhal, Chennai"].map(
                 (badge) => (
                   <span
                     key={badge}
@@ -152,7 +138,7 @@ export default function Footer() {
       <div className="border-t border-neutral-800">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-neutral-500">
-            © {new Date().getFullYear()} SmileCare Dental Clinic, Chennai. All
+            © {new Date().getFullYear()} Care N Cure Multi-Speciality Dental Centre, Chennai. All
             rights reserved.
           </p>
           <p className="text-xs text-neutral-500 flex items-center gap-1">

@@ -5,7 +5,6 @@ import { useInView } from "react-intersection-observer";
 import {
   MapPin,
   Phone,
-  Mail,
   Clock,
   ExternalLink,
 } from "lucide-react";
@@ -14,33 +13,32 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+91 98765 43210",
-    sub: "+91 98765 43211 (Emergency)",
-    href: "tel:+919876543210",
+    value: "+91 97899 69383",
+    sub: "Call us to book an appointment",
+    href: "tel:+919789969383",
     color: "bg-primary-50 text-primary-600",
   },
   {
-    icon: Mail,
-    label: "Email",
-    value: "care@smilecaredental.in",
-    sub: "We reply within 2 hours",
-    href: "mailto:care@smilecaredental.in",
+    icon: Clock,
+    label: "Working Hours",
+    value: "Open — Contact for timings",
+    sub: "Mon – Sat: 9:00 AM – 7:00 PM",
+    href: "tel:+919789969383",
     color: "bg-teal-50 text-teal-600",
   },
   {
     icon: MapPin,
     label: "Address",
-    value: "42, Gandhi Nagar Main Road",
-    sub: "Adyar, Chennai — 600 020",
-    href: "https://maps.google.com",
+    value: "St. Anthony's Hospital, 1st Cross Street",
+    sub: "St Anthony Nagar Camp, Puzhal, Chennai – 600066",
+    href: "https://www.google.com/maps/search/Care+N+Cure+Dental+Puzhal+Chennai",
     color: "bg-rose-50 text-rose-600",
   },
 ];
 
 const hours = [
-  { day: "Monday – Friday", time: "9:00 AM – 7:00 PM" },
-  { day: "Saturday", time: "9:00 AM – 5:00 PM" },
-  { day: "Sunday", time: "10:00 AM – 2:00 PM" },
+  { day: "Monday – Saturday", time: "9:00 AM – 7:00 PM" },
+  { day: "Sunday", time: "Contact for timings" },
 ];
 
 export default function Contact() {

@@ -9,25 +9,42 @@ import {
   AlignCenter,
   CheckCircle,
   ArrowRight,
+  Wind,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const services = [
   {
-    icon: Sparkles,
-    color: "bg-amber-50 text-amber-600",
-    borderColor: "hover:border-amber-300",
-    accentColor: "text-amber-600",
-    title: "Teeth Whitening",
-    titleTa: "பல் வெண்மையாக்கல்",
+    icon: Wind,
+    color: "bg-sky-50 text-sky-600",
+    borderColor: "hover:border-sky-300",
+    accentColor: "text-sky-600",
+    title: "Teeth Cleaning",
+    titleTa: "பல் சுத்தப்படுத்தல்",
     description:
-      "Professional-grade whitening that removes years of staining in a single session, leaving you with a naturally bright smile.",
+      "Professional cleaning that removes plaque, tartar, and stains for healthy gums and fresh breath. Recommended every 6 months.",
     descTa:
-      "ஒரே அமர்வில் வருடங்கள் கறை நீக்கி இயற்கையான ஒளிரும் புன்னகை.",
-    benefits: ["Up to 8 shades brighter", "Safe & painless", "Long-lasting results"],
-    benefitsTa: ["8 நிழல் வரை பிரகாசமாகும்", "பாதுகாப்பான & வலியற்றது", "நீடித்த முடிவுகள்"],
-    duration: "60 min",
-    price: "From ₹4,999",
+      "ஆரோக்கியமான ஒடுக்குகள் மற்றும் ஒளிரும் மூச்சுக்காக தொழில்முறை சுத்தப்படுத்தல்.",
+    benefits: ["Removes plaque & tartar", "Fresh breath", "Prevents gum disease"],
+    benefitsTa: ["தகடு & கறை நீக்கும்", "தாழ்கால மூச்சு", "ஒடு நோயை தடுக்கிறது"],
+    duration: "45 min",
+    price: "Affordable pricing",
+  },
+  {
+    icon: Activity,
+    color: "bg-rose-50 text-rose-600",
+    borderColor: "hover:border-rose-300",
+    accentColor: "text-rose-600",
+    title: "Root Canal Treatment",
+    titleTa: "வேர் கால் சிகிச்சை",
+    description:
+      "Pain-free root canal procedures using advanced techniques. Save your natural tooth and eliminate infection fast.",
+    descTa:
+      "நவீன தொழில்நுட்பம் பயன்படுத்தி வலியற்ற வேர் கால் சிகிச்சை.",
+    benefits: ["Painless procedure", "Saves natural tooth", "Advanced techniques"],
+    benefitsTa: ["வலியற்ற சிகிச்சை", "இயற்கை பல் பாதுகாக்கப்படும்", "மேம்பட்ட தொழில்நுட்பம்"],
+    duration: "60–90 min",
+    price: "Affordable pricing",
   },
   {
     icon: Anchor,
@@ -37,29 +54,13 @@ const services = [
     title: "Dental Implants",
     titleTa: "பல் இம்ப்ளான்ட்",
     description:
-      "Permanent tooth replacement that looks, feels, and functions exactly like your natural tooth — for a lifetime.",
+      "Permanent solution for missing teeth. Implants look, feel, and function exactly like your natural tooth.",
     descTa:
-      "உங்கள் இயற்கை பல்லைப் போலவே இருக்கும் நிரந்தர பல் மாற்று — வாழ்நாள் முழுவதும்.",
-    benefits: ["Permanent solution", "Titanium-grade implant", "Natural appearance"],
-    benefitsTa: ["நிரந்தர தீர்வு", "டைட்டானியம் தர இம்ப்ளான்ட்", "இயற்கையான தோற்றம்"],
+      "இழந்த பல்லுக்கு நிரந்தர தீர்வு. இயற்கை பல்லைப் போலவே தோற்றம் மற்றும் செயல்பாடு தரும்.",
+    benefits: ["Permanent solution", "Natural look & feel", "Long-lasting results"],
+    benefitsTa: ["நிரந்தர தீர்வு", "இயற்கையான தோற்றம்", "நீடித்த முடிவுகள்"],
     duration: "2–3 visits",
-    price: "From ₹25,000",
-  },
-  {
-    icon: Activity,
-    color: "bg-rose-50 text-rose-600",
-    borderColor: "hover:border-rose-300",
-    accentColor: "text-rose-600",
-    title: "Root Canal",
-    titleTa: "வேர் கால் சிகிச்சை",
-    description:
-      "Modern, virtually painless root canal treatment that saves your infected tooth and eliminates pain fast.",
-    descTa:
-      "நவீன, கிட்டத்தட்ட வலியற்ற வேர் கால் சிகிச்சை — தொற்று பல்லை காத்து வலியை நீக்கும்.",
-    benefits: ["Painless procedure", "Single session available", "Preserves natural tooth"],
-    benefitsTa: ["வலியற்ற சிகிச்சை", "ஒரே அமர்வில் கிடைக்கும்", "இயற்கை பல் பாதுகாக்கப்படும்"],
-    duration: "90 min",
-    price: "From ₹6,000",
+    price: "Contact for pricing",
   },
   {
     icon: AlignCenter,
@@ -69,13 +70,29 @@ const services = [
     title: "Braces & Aligners",
     titleTa: "பல் சீராக்கி",
     description:
-      "From traditional braces to invisible clear aligners — we straighten your smile with the approach that fits your lifestyle.",
+      "Straighten your teeth with modern orthodontic solutions. We offer both traditional braces and clear aligner options.",
     descTa:
-      "பாரம்பரிய பிரேஸ்கள் முதல் தெளிவான அலைனர்கள் வரை — உங்கள் வாழ்க்கை முறைக்கு பொருத்தமான அணுகுமுறை.",
-    benefits: ["Clear aligner option", "All age groups", "Discreet treatment"],
-    benefitsTa: ["தெளிவான அலைனர் விருப்பம்", "அனைத்து வயதினரும்", "விவேகமான சிகிச்சை"],
+      "நவீன பல் சீராக்கி தீர்வுகள் மூலம் பல்லை சீராக்குங்கள்.",
+    benefits: ["Traditional & clear options", "All age groups", "Improved confidence"],
+    benefitsTa: ["பாரம்பரிய & தெளிவான விருப்பம்", "அனைத்து வயதினரும்", "தன்னம்பிக்கை மேம்படும்"],
     duration: "12–18 months",
-    price: "From ₹18,000",
+    price: "Contact for pricing",
+  },
+  {
+    icon: Sparkles,
+    color: "bg-amber-50 text-amber-600",
+    borderColor: "hover:border-amber-300",
+    accentColor: "text-amber-600",
+    title: "Cosmetic Dentistry",
+    titleTa: "பல் அழகியல்",
+    description:
+      "Enhance your smile with teeth whitening, veneers, and aesthetic dental treatments. Look and feel your confident best.",
+    descTa:
+      "பல் வெண்மையாக்கல், வினியர்கள் மற்றும் அழகியல் சிகிச்சைகள் மூலம் புன்னகையை மேம்படுத்துங்கள்.",
+    benefits: ["Teeth whitening", "Smile makeover", "Aesthetic veneers"],
+    benefitsTa: ["பல் வெண்மையாக்கல்", "புன்னகை மாற்றம்", "அழகியல் வினியர்கள்"],
+    duration: "1–2 visits",
+    price: "Affordable pricing",
   },
 ];
 

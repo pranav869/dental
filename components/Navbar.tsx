@@ -38,14 +38,14 @@ export default function Navbar() {
       <div className="bg-primary-700 text-white text-sm py-2 px-4 hidden sm:block">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <span className="text-primary-100">
-            Mon – Sat: 9:00 AM – 7:00 PM &nbsp;|&nbsp; Sun: 10:00 AM – 2:00 PM
+            Puzhal, Chennai &nbsp;|&nbsp; Mon – Sat: 9:00 AM – 7:00 PM
           </span>
           <a
-            href="tel:+919876543210"
+            href="tel:+919789969383"
             className="flex items-center gap-1.5 font-semibold hover:text-primary-200 transition-colors"
           >
             <Phone size={14} />
-            +91 98765 43210
+            +91 97899 69383
           </a>
         </div>
       </div>
@@ -77,10 +77,10 @@ export default function Navbar() {
             </div>
             <div>
               <span className="font-bold text-lg text-neutral-900 leading-none block">
-                SmileCare
+                Care N Cure
               </span>
               <span className="text-xs text-primary-600 font-medium leading-none">
-                Dental Clinic
+                Dental Centre
               </span>
             </div>
           </a>
@@ -110,7 +110,7 @@ export default function Navbar() {
               {language === "en" ? "EN | த" : "த | EN"}
             </button>
 
-            <a href="tel:+919876543210" className="btn-secondary text-sm py-2">
+            <a href="tel:+919789969383" className="btn-secondary text-sm py-2">
               <Phone size={14} />
               {t.nav.call}
             </a>
@@ -154,11 +154,11 @@ export default function Navbar() {
                 ))}
                 <div className="pt-3 border-t border-neutral-100 space-y-2">
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+919789969383"
                     className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-primary-600 hover:bg-primary-50 rounded-lg"
                   >
                     <Phone size={16} />
-                    +91 98765 43210
+                    +91 97899 69383
                   </a>
                   <button
                     onClick={() => scrollTo("#appointment")}

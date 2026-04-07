@@ -7,64 +7,34 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const reviews = [
   {
-    name: "Ananya Krishnan",
-    initials: "AK",
-    location: "Anna Nagar, Chennai",
-    treatment: "Teeth Whitening",
+    name: "Priya S",
+    initials: "PS",
+    location: "Chennai",
+    treatment: "Dental Treatment",
     rating: 5,
-    date: "March 2024",
+    date: "2024",
     review:
-      "I was nervous about teeth whitening but Dr. Priya and her team made it so comfortable. The results were stunning — 6 shades brighter in one session! The clinic is spotlessly clean and the staff are incredibly warm. I've already recommended SmileCare to all my friends.",
+      "Very painless treatment. Doctor explained everything clearly. I was nervous before coming but the experience was really comfortable. Highly recommend Care N Cure to everyone.",
   },
   {
-    name: "Rajan Murugesan",
-    initials: "RM",
-    location: "T. Nagar, Chennai",
-    treatment: "Dental Implant",
+    name: "Karthik R",
+    initials: "KR",
+    location: "Chennai",
+    treatment: "Dental Treatment",
     rating: 5,
-    date: "February 2024",
+    date: "2024",
     review:
-      "After losing a tooth in an accident, I was worried about implants. Dr. Priya explained everything step by step and the procedure was completely painless. The implant looks and feels like a natural tooth. Best dental decision I've ever made.",
+      "Affordable and very professional service. Highly recommend. The clinic is clean and the staff are friendly. Got great results and the doctor was very thorough in explaining the procedure.",
   },
   {
-    name: "Meena Sundaram",
-    initials: "MS",
-    location: "Adyar, Chennai",
-    treatment: "Root Canal",
+    name: "Meena V",
+    initials: "MV",
+    location: "Chennai",
+    treatment: "Dental Treatment",
     rating: 5,
-    date: "January 2024",
+    date: "2024",
     review:
-      "I had a terrible toothache and was dreading a root canal. Dr. Priya completed it in one visit with minimal discomfort. I was eating normally the same evening. The clinic is modern, hygienic, and the entire team is professional and kind.",
-  },
-  {
-    name: "Karthik Subramaniam",
-    initials: "KS",
-    location: "Velachery, Chennai",
-    treatment: "Clear Aligners",
-    rating: 5,
-    date: "December 2023",
-    review:
-      "I'd wanted straight teeth for years but was self-conscious about metal braces. The clear aligners from SmileCare were the perfect solution. Dr. Priya monitored my progress every month. 14 months later — the results are incredible. Totally worth it.",
-  },
-  {
-    name: "Preethi Arunachalam",
-    initials: "PA",
-    location: "Porur, Chennai",
-    treatment: "Regular Check-up & Cleaning",
-    rating: 5,
-    date: "November 2023",
-    review:
-      "What I love most is how thorough they are. My previous dentist used to rush through appointments. Here, Dr. Priya takes her time, explains every finding, and the hygienist does a meticulous cleaning. My teeth feel amazing after every visit.",
-  },
-  {
-    name: "Venkat Ramaiah",
-    initials: "VR",
-    location: "Perambur, Chennai",
-    treatment: "Dental Implant",
-    rating: 5,
-    date: "October 2023",
-    review:
-      "Brilliant experience from start to finish. The front desk staff are helpful, the clinic is clean and modern, and Dr. Priya is exceptionally skilled. She did two implants for me and both healed perfectly. I travel 30 km each way — totally worth the journey.",
+      "Friendly doctor and comfortable clinic experience. The treatment was completely pain-free. I finally found a dentist I can trust. Will definitely be coming back for regular check-ups.",
   },
 ];
 

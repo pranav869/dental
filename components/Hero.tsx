@@ -125,7 +125,7 @@ export default function Hero() {
                 {t.hero.bookCta}
               </button>
               <a
-                href="tel:+919876543210"
+                href="tel:+919789969383"
                 className="btn-secondary text-base px-8 py-3.5"
               >
                 <Phone size={18} />
@@ -152,12 +152,12 @@ export default function Hero() {
                   ))}
                 </div>
                 <span className="font-medium text-neutral-700">4.9/5</span>
-                <span>from 500+ reviews</span>
+                <span>from 50+ reviews</span>
               </div>
               <span className="text-neutral-200">|</span>
               <div className="flex items-center gap-1.5">
                 <Shield size={14} className="text-teal-500" />
-                <span>ISO Certified Clinic</span>
+                <span>8+ Years Trusted Care</span>
               </div>
             </motion.div>
           </div>
@@ -186,10 +186,10 @@ export default function Hero() {
                   </div>
                   <div>
                     <p className="font-semibold text-neutral-900">
-                      Dr. Priya Sharma
+                      Care N Cure Dental
                     </p>
                     <p className="text-sm text-neutral-500">
-                      BDS, MDS — 15 years exp.
+                      Multi-Speciality — 8+ years exp.
                     </p>
                   </div>
                   <div className="ml-auto flex items-center gap-0.5">
