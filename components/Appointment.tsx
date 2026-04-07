@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useForm } from "react-hook-form";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 import {
   User,
   Phone,
@@ -54,12 +56,25 @@ export default function Appointment() {
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    console.log({ ...data, timeSlot: selectedSlot });
-    setLoading(false);
-    setSubmitted(true);
-    reset();
-    setSelectedSlot("");
+    try {
+      await addDoc(collection(db, "bookings"), {
+        name: data.name,
+        phone: data.phone,
+        problem: data.treatment,
+        date: data.date,
+        time: selectedSlot || "Not specified",
+        notes: data.message || "",
+        status: "pending",
+        createdAt: serverTimestamp(),
+      });
+      setSubmitted(true);
+      reset();
+      setSelectedSlot("");
+    } catch (err) {
+      console.error("Booking save error:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const minDate = new Date();
@@ -139,14 +154,14 @@ export default function Appointment() {
                 Prefer to call?
               </p>
               <a
-                href="tel:+919876543210"
+                href="tel:+919789969383"
                 className="text-white font-bold text-lg hover:text-primary-200 transition-colors flex items-center gap-2"
               >
                 <Phone size={18} />
-                +91 98765 43210
+                +91 97899 69383
               </a>
               <p className="text-primary-200 text-xs mt-1">
-                Mon–Sat: 9 AM – 7 PM · Sun: 10 AM – 2 PM
+                Mon–Sat: 9 AM – 7 PM
               </p>
             </div>
           </motion.div>
