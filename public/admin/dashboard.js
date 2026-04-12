@@ -152,7 +152,7 @@ auth.onAuthStateChanged(user => {
     window.location.href = 'index.html';
     return;
   }
-  document.getElementById('adminEmail').textContent = '\uD83D\uDC64 ' + user.email;
+  document.getElementById('adminEmail').textContent = '👤 admin';
   document.body.style.display = 'block';
   subscribeBookings();
 });
