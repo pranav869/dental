@@ -293,12 +293,12 @@
 
       <form id="loginForm" autocomplete="off">
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="email">Email</label>
           <div class="input-wrap">
             <span class="input-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </span>
-            <input type="text" id="username" placeholder="admin" required />
+            <input type="email" id="email" placeholder="doctor@example.com" required />
           </div>
         </div>
 
@@ -335,19 +335,19 @@
 
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script src="firebase-config.js"></script>
 
   <script>
-    if (sessionStorage.getItem('adminLoggedIn') === 'true') {
-      window.location.href = 'dashboard.html';
-    }
+    firebase.initializeApp(firebaseConfig);
+    const auth     = firebase.auth();
+    const loginBtn = document.querySelector('.btn-login');
+    const errorEl  = document.getElementById('loginError');
 
-    const app = firebase.initializeApp(firebaseConfig);
-    const db  = firebase.firestore();
-
-    const loginBtn  = document.querySelector('.btn-login');
-    const errorEl   = document.getElementById('loginError');
+    // Redirect to dashboard if already signed in
+    auth.onAuthStateChanged(user => {
+      if (user) window.location.href = 'dashboard.html';
+    });
 
     // Show / hide password toggle
     document.getElementById('togglePwd').addEventListener('click', function () {
@@ -364,7 +364,7 @@
 
     document.getElementById('loginForm').addEventListener('submit', async function (e) {
       e.preventDefault();
-      const username = document.getElementById('username').value.trim();
+      const email    = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value.trim();
 
       errorEl.classList.add('hidden');
@@ -372,32 +372,21 @@
       loginBtn.textContent = 'Signing in...';
 
       try {
-        const docRef  = db.collection('admin').doc('config');
-        const docSnap = await docRef.get();
-
-        let savedPassword = 'admin123';
-        if (docSnap.exists) {
-          savedPassword = docSnap.data().password || 'admin123';
-        } else {
-          // First-time setup — create the config doc
-          await docRef.set({ password: 'admin123' });
-        }
-
-        if (username === 'admin' && password === savedPassword) {
-          sessionStorage.setItem('adminLoggedIn', 'true');
-          window.location.href = 'dashboard.html';
-        } else {
-          errorEl.classList.remove('hidden');
-          document.getElementById('password').value = '';
-          loginBtn.disabled = false;
-          loginBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg> Sign In`;
-        }
+        await auth.signInWithEmailAndPassword(email, password);
+        window.location.href = 'dashboard.html';
       } catch (err) {
-        console.error(err);
-        errorEl.textContent = 'Connection error. Try again.';
+        const msgs = {
+          'auth/user-not-found':    'No account found with this email.',
+          'auth/wrong-password':    'Incorrect password. Try again.',
+          'auth/invalid-email':     'Please enter a valid email address.',
+          'auth/too-many-requests': 'Too many attempts. Try again later.',
+          'auth/invalid-credential':'Invalid email or password.',
+        };
+        errorEl.textContent = msgs[err.code] || 'Login failed. Try again.';
         errorEl.classList.remove('hidden');
+        document.getElementById('password').value = '';
         loginBtn.disabled = false;
-        loginBtn.textContent = 'Sign In';
+        loginBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg> Sign In`;
       }
     });
   </script>

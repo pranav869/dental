@@ -7,7 +7,7 @@
   <base href="/admin/" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="dashboard-page">
+<body class="dashboard-page" style="display:none">
 
   <!-- ── TOP BAR ─────────────────────────────────────── -->
   <header class="topbar">
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="topbar-right">
-      <span class="admin-label">👤 admin</span>
+      <span class="admin-label" id="adminEmail">👤 ...</span>
       <button class="btn-change-pwd" id="btnChangePwd">🔑 Change Password</button>
       <button class="btn-logout" id="btnLogout">Logout</button>
     </div>
@@ -131,6 +131,7 @@
 
   <!-- ── Firebase SDKs (compat — no bundler needed) ──── -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
   <!-- Firebase config (fill in your values in firebase-config.js) -->

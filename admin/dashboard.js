@@ -2,14 +2,10 @@
 // DASHBOARD LOGIC — Firebase Firestore + Admin UI
 // ============================================================
 
-// Auth guard
-if (sessionStorage.getItem('adminLoggedIn') !== 'true') {
-  window.location.href = 'index.html';
-}
-
 // ── Firebase init ──────────────────────────────────────────
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db   = firebase.firestore();
 
 // ── State ──────────────────────────────────────────────────
 let allBookings = [];
@@ -150,6 +146,17 @@ function escHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
+// ── Auth guard (Firebase Auth) ───────────────────────────
+auth.onAuthStateChanged(user => {
+  if (!user) {
+    window.location.href = 'index.html';
+    return;
+  }
+  document.getElementById('adminEmail').textContent = '\uD83D\uDC64 ' + user.email;
+  document.body.style.display = 'block';
+  subscribeBookings();
+});
+
 // ── Mark booking as completed ──────────────────────────────
 async function markCompleted(id) {
   try {
@@ -282,24 +289,20 @@ document.getElementById('btnSavePwd').addEventListener('click', async () => {
   saveBtn.textContent = 'Saving...';
 
   try {
-    const docRef  = db.collection('admin').doc('config');
-    const docSnap = await docRef.get();
-    const saved   = docSnap.exists ? (docSnap.data().password || 'admin123') : 'admin123';
-
-    if (current !== saved) {
-      pwdError.textContent = '❌ Current password is incorrect.';
-      pwdError.classList.remove('hidden');
-      saveBtn.disabled = false;
-      saveBtn.textContent = 'Save New Password';
-      return;
-    }
-
-    await docRef.set({ password: newPwd }, { merge: true });
+    const user       = auth.currentUser;
+    const credential = firebase.auth.EmailAuthProvider.credential(user.email, current);
+    await user.reauthenticateWithCredential(credential);
+    await user.updatePassword(newPwd);
     closePwdModal();
     showToast('✓ Password changed successfully', 'success');
   } catch (err) {
     console.error(err);
-    pwdError.textContent = '❌ Error saving password. Try again.';
+    const msgs = {
+      'auth/wrong-password':    '❌ Current password is incorrect.',
+      'auth/weak-password':     '❌ New password is too weak (min 6 chars).',
+      'auth/too-many-requests': '❌ Too many attempts. Try again later.',
+    };
+    pwdError.textContent = msgs[err.code] || '❌ Error changing password. Try again.';
     pwdError.classList.remove('hidden');
   } finally {
     saveBtn.disabled = false;
@@ -308,9 +311,9 @@ document.getElementById('btnSavePwd').addEventListener('click', async () => {
 });
 
 // ── Logout ─────────────────────────────────────────────────
-document.getElementById('btnLogout').addEventListener('click', () => {
+document.getElementById('btnLogout').addEventListener('click', async () => {
   if (unsubscribe) unsubscribe();
-  sessionStorage.removeItem('adminLoggedIn');
+  await auth.signOut();
   window.location.href = 'index.html';
 });
 
@@ -318,5 +321,3 @@ document.getElementById('btnLogout').addEventListener('click', () => {
 window.markCompleted = markCompleted;
 window.deleteBooking = deleteBooking;
 
-// ── Boot ───────────────────────────────────────────────────
-subscribeBookings();
