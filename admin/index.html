@@ -336,13 +336,11 @@
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script src="firebase-config.js"></script>
 
   <script>
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
-    const db   = firebase.firestore();
     const loginBtn = document.querySelector('.btn-login');
     const errorEl  = document.getElementById('loginError');
 
@@ -384,14 +382,7 @@
       }
 
       try {
-        // Fetch admin email from Firestore; fall back to default if unavailable
-        let email = 'mainsjee237@gmail.com';
-        try {
-          const snap = await db.collection('admin').doc('config').get();
-          if (snap.exists && snap.data().authEmail) email = snap.data().authEmail;
-        } catch (_) { /* use fallback email */ }
-
-        await auth.signInWithEmailAndPassword(email, password);
+        await auth.signInWithEmailAndPassword('mainsjee237@gmail.com', password);
         window.location.href = 'dashboard.html';
       } catch (err) {
         const msgs = {
