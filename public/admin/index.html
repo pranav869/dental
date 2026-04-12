@@ -336,11 +336,13 @@
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script src="firebase-config.js"></script>
 
   <script>
     firebase.initializeApp(firebaseConfig);
-    const auth     = firebase.auth();
+    const auth = firebase.auth();
+    const db   = firebase.firestore();
     const loginBtn = document.querySelector('.btn-login');
     const errorEl  = document.getElementById('loginError');
 
@@ -362,8 +364,7 @@
       }
     });
 
-    // Fixed email used internally for Firebase Auth
-    const ADMIN_EMAIL = 'mainsjee237@gmail.com';
+    const SIGN_IN_SVG = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg> Sign In`;
 
     document.getElementById('loginForm').addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -378,12 +379,18 @@
         errorEl.textContent = 'Invalid username or password.';
         errorEl.classList.remove('hidden');
         loginBtn.disabled = false;
-        loginBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg> Sign In`;
+        loginBtn.innerHTML = SIGN_IN_SVG;
         return;
       }
 
       try {
-        await auth.signInWithEmailAndPassword(ADMIN_EMAIL, password);
+        // Fetch admin email from Firestore so no code change needed if email changes
+        const snap  = await db.collection('admin').doc('config').get();
+        const email = snap.exists && snap.data().authEmail
+          ? snap.data().authEmail
+          : 'mainsjee237@gmail.com';
+
+        await auth.signInWithEmailAndPassword(email, password);
         window.location.href = 'dashboard.html';
       } catch (err) {
         const msgs = {
@@ -396,7 +403,7 @@
         errorEl.classList.remove('hidden');
         document.getElementById('password').value = '';
         loginBtn.disabled = false;
-        loginBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg> Sign In`;
+        loginBtn.innerHTML = SIGN_IN_SVG;
       }
     });
   </script>
