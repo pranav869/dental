@@ -254,16 +254,16 @@ pwdModal.addEventListener('click', (e) => {
   if (e.target === pwdModal) closePwdModal();
 });
 
-document.getElementById('btnSavePwd').addEventListener('click', () => {
+document.getElementById('btnSavePwd').addEventListener('click', async () => {
   const current  = document.getElementById('currentPwd').value.trim();
   const newPwd   = document.getElementById('newPwd').value.trim();
   const confirm  = document.getElementById('confirmPwd').value.trim();
-  const saved    = localStorage.getItem('adminPassword') || 'admin123';
+  const saveBtn  = document.getElementById('btnSavePwd');
 
   pwdError.classList.add('hidden');
 
-  if (current !== saved) {
-    pwdError.textContent = '❌ Current password is incorrect.';
+  if (!current || !newPwd || !confirm) {
+    pwdError.textContent = '❌ All fields are required.';
     pwdError.classList.remove('hidden');
     return;
   }
@@ -278,9 +278,33 @@ document.getElementById('btnSavePwd').addEventListener('click', () => {
     return;
   }
 
-  localStorage.setItem('adminPassword', newPwd);
-  closePwdModal();
-  showToast('✓ Password changed successfully', 'success');
+  saveBtn.disabled = true;
+  saveBtn.textContent = 'Saving...';
+
+  try {
+    const docRef  = db.collection('admin').doc('config');
+    const docSnap = await docRef.get();
+    const saved   = docSnap.exists ? (docSnap.data().password || 'admin123') : 'admin123';
+
+    if (current !== saved) {
+      pwdError.textContent = '❌ Current password is incorrect.';
+      pwdError.classList.remove('hidden');
+      saveBtn.disabled = false;
+      saveBtn.textContent = 'Save New Password';
+      return;
+    }
+
+    await docRef.set({ password: newPwd }, { merge: true });
+    closePwdModal();
+    showToast('✓ Password changed successfully', 'success');
+  } catch (err) {
+    console.error(err);
+    pwdError.textContent = '❌ Error saving password. Try again.';
+    pwdError.classList.remove('hidden');
+  } finally {
+    saveBtn.disabled = false;
+    saveBtn.textContent = 'Save New Password';
+  }
 });
 
 // ── Logout ─────────────────────────────────────────────────
