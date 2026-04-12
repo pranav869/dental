@@ -384,11 +384,12 @@
       }
 
       try {
-        // Fetch admin email from Firestore so no code change needed if email changes
-        const snap  = await db.collection('admin').doc('config').get();
-        const email = snap.exists && snap.data().authEmail
-          ? snap.data().authEmail
-          : 'mainsjee237@gmail.com';
+        // Fetch admin email from Firestore; fall back to default if unavailable
+        let email = 'mainsjee237@gmail.com';
+        try {
+          const snap = await db.collection('admin').doc('config').get();
+          if (snap.exists && snap.data().authEmail) email = snap.data().authEmail;
+        } catch (_) { /* use fallback email */ }
 
         await auth.signInWithEmailAndPassword(email, password);
         window.location.href = 'dashboard.html';
