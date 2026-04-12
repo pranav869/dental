@@ -46,7 +46,9 @@
       const password = document.getElementById('password').value.trim();
       const errorEl = document.getElementById('loginError');
 
-      if (username === 'admin' && password === 'admin123') {
+      const savedPassword = localStorage.getItem('adminPassword') || 'admin123';
+
+      if (username === 'admin' && password === savedPassword) {
         sessionStorage.setItem('adminLoggedIn', 'true');
         window.location.href = 'dashboard.html';
       } else {

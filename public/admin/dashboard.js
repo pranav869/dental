@@ -231,6 +231,58 @@ filterDateInput.addEventListener('change', (e) => {
   applyFilter();
 });
 
+// ── Change Password ──────────────────────────────────────────────────────────
+const pwdModal       = document.getElementById('pwdModal');
+const pwdError       = document.getElementById('pwdError');
+
+function openPwdModal() {
+  document.getElementById('currentPwd').value = '';
+  document.getElementById('newPwd').value = '';
+  document.getElementById('confirmPwd').value = '';
+  pwdError.classList.add('hidden');
+  pwdModal.classList.remove('hidden');
+}
+
+function closePwdModal() {
+  pwdModal.classList.add('hidden');
+}
+
+document.getElementById('btnChangePwd').addEventListener('click', openPwdModal);
+document.getElementById('btnClosePwdModal').addEventListener('click', closePwdModal);
+
+pwdModal.addEventListener('click', (e) => {
+  if (e.target === pwdModal) closePwdModal();
+});
+
+document.getElementById('btnSavePwd').addEventListener('click', () => {
+  const current  = document.getElementById('currentPwd').value.trim();
+  const newPwd   = document.getElementById('newPwd').value.trim();
+  const confirm  = document.getElementById('confirmPwd').value.trim();
+  const saved    = localStorage.getItem('adminPassword') || 'admin123';
+
+  pwdError.classList.add('hidden');
+
+  if (current !== saved) {
+    pwdError.textContent = '❌ Current password is incorrect.';
+    pwdError.classList.remove('hidden');
+    return;
+  }
+  if (newPwd.length < 6) {
+    pwdError.textContent = '❌ New password must be at least 6 characters.';
+    pwdError.classList.remove('hidden');
+    return;
+  }
+  if (newPwd !== confirm) {
+    pwdError.textContent = '❌ Passwords do not match.';
+    pwdError.classList.remove('hidden');
+    return;
+  }
+
+  localStorage.setItem('adminPassword', newPwd);
+  closePwdModal();
+  showToast('✓ Password changed successfully', 'success');
+});
+
 // ── Logout ─────────────────────────────────────────────────
 document.getElementById('btnLogout').addEventListener('click', () => {
   if (unsubscribe) unsubscribe();

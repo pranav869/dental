@@ -19,6 +19,7 @@
     </div>
     <div class="topbar-right">
       <span class="admin-label">👤 admin</span>
+      <button class="btn-change-pwd" id="btnChangePwd">🔑 Change Password</button>
       <button class="btn-logout" id="btnLogout">Logout</button>
     </div>
   </header>
@@ -101,6 +102,32 @@
 
   <!-- Toast notification -->
   <div class="toast" id="toast"></div>
+
+  <!-- Change Password Modal -->
+  <div class="modal-overlay hidden" id="pwdModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>🔑 Change Password</h3>
+        <button class="modal-close" id="btnClosePwdModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Current Password</label>
+          <input type="password" id="currentPwd" placeholder="Enter current password" />
+        </div>
+        <div class="form-group">
+          <label>New Password</label>
+          <input type="password" id="newPwd" placeholder="Enter new password (min 6 chars)" />
+        </div>
+        <div class="form-group">
+          <label>Confirm New Password</label>
+          <input type="password" id="confirmPwd" placeholder="Re-enter new password" />
+        </div>
+        <div id="pwdError" class="error-msg hidden"></div>
+        <button class="btn-primary btn-full" id="btnSavePwd">Save New Password</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ── Firebase SDKs (compat — no bundler needed) ──── -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
