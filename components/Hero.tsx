@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Phone, Calendar, Star, Shield } from "lucide-react";
+import { Phone, Calendar, Shield } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const fadeUp = {
@@ -142,26 +142,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               className="flex flex-wrap items-center gap-5 text-sm text-white/70"
-            >
-              <div className="flex items-center gap-1.5">
-                <div className="flex -space-x-1">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star
-                      key={i}
-                      size={14}
-                      className="text-amber-400 fill-amber-400"
-                    />
-                  ))}
-                </div>
-                <span className="font-medium text-white">5.0/5</span>
-                <span>from 7+ reviews</span>
-              </div>
-              <span className="text-white/30">|</span>
-              <div className="flex items-center gap-1.5">
-                <Shield size={14} className="text-teal-300" />
-                <span>8+ Years Trusted Care</span>
-              </div>
-            </motion.div>
+            />
           </div>
 
         </div>
