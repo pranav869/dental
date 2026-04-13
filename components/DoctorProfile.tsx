@@ -1,11 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
   GraduationCap,
-  Award,
-  Clock,
   Star,
   CheckCircle,
   Calendar,
@@ -19,9 +18,8 @@ const credentials = [
 ];
 
 const highlights = [
-  { icon: Clock, value: "8+", label: "Years of Practice" },
-  { icon: Star, value: "4.9", label: "Patient Rating" },
-  { icon: Award, value: "50+", label: "Happy Patients" },
+  { icon: Star, value: "5.0", label: "Google Rating" },
+  { icon: Star, value: "7+", label: "Reviews" },
   { icon: GraduationCap, value: "100%", label: "Painless Focus" },
 ];
 
@@ -68,69 +66,21 @@ export default function DoctorProfile() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="relative"
           >
-            {/* Placeholder doctor card */}
-            <div className="relative bg-gradient-to-br from-primary-100 to-teal-100 rounded-3xl overflow-hidden aspect-[4/5] max-w-sm mx-auto">
-              {/* Decorative background shapes */}
-              <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-primary-600/20 to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                {/* Doctor silhouette SVG placeholder */}
-                <svg
-                  viewBox="0 0 200 280"
-                  className="w-4/5 h-4/5"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Lab coat body */}
-                  <path
-                    d="M40 280 L40 180 Q40 160 60 155 L80 145 L100 170 L120 145 L140 155 Q160 160 160 180 L160 280 Z"
-                    fill="white"
-                    opacity="0.9"
-                  />
-                  {/* Scrubs/shirt underneath */}
-                  <path
-                    d="M75 155 L100 165 L125 155 L120 145 L100 155 L80 145 Z"
-                    fill="#0ea5e9"
-                    opacity="0.6"
-                  />
-                  {/* Head */}
-                  <circle cx="100" cy="90" r="42" fill="#FDDBB4" />
-                  {/* Hair */}
-                  <path
-                    d="M60 75 Q62 45 100 48 Q138 45 140 75 Q135 55 100 52 Q65 55 60 75Z"
-                    fill="#3d2b1f"
-                    opacity="0.85"
-                  />
-                  {/* Eyes */}
-                  <ellipse cx="87" cy="88" rx="5" ry="6" fill="#3d2b1f" />
-                  <ellipse cx="113" cy="88" rx="5" ry="6" fill="#3d2b1f" />
-                  <circle cx="89" cy="86" r="1.5" fill="white" />
-                  <circle cx="115" cy="86" r="1.5" fill="white" />
-                  {/* Smile */}
-                  <path
-                    d="M88 105 Q100 115 112 105"
-                    stroke="#c0825a"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    fill="none"
-                  />
-                  {/* Stethoscope */}
-                  <path
-                    d="M85 150 Q80 175 75 185 Q70 200 80 205 Q90 210 95 200"
-                    stroke="#0284c7"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    fill="none"
-                  />
-                  <circle cx="95" cy="198" r="6" fill="#0284c7" opacity="0.7" />
-                </svg>
-              </div>
+            {/* Real clinic photo */}
+            <div className="relative rounded-2xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.12)] max-w-sm mx-auto aspect-[4/5]">
+              <Image
+                src="/clinic-doctor.webp"
+                alt="Dr. Basheera BDS — Care N Cure Dental Centre"
+                fill
+                className="object-cover object-center"
+              />
               {/* Name card overlay at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm px-6 py-4 border-t border-white/50">
-                <p className="font-bold text-neutral-900 text-lg">
-                  Care N Cure Dental
+              <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm px-5 py-4 border-t border-white/50">
+                <p className="font-bold text-neutral-900 text-base">
+                  Dr. Basheera BDS
                 </p>
-                <p className="text-primary-600 text-sm font-medium">
-                  Multi-Speciality Dental Centre
+                <p className="text-primary-600 text-xs font-semibold">
+                  Care N Cure Multi-Speciality Dental Centre
                 </p>
                 <div className="flex items-center gap-1 mt-1">
                   {[1, 2, 3, 4, 5].map((s) => (
@@ -141,23 +91,10 @@ export default function DoctorProfile() {
                     />
                   ))}
                   <span className="text-xs text-neutral-500 ml-1">
-                    4.9 · 50+ reviews
+                    5.0 · Google Reviews
                   </span>
                 </div>
               </div>
-            </div>
-
-            {/* Floating badge */}
-            <div className="absolute top-4 right-4 sm:-right-6 bg-white shadow-card rounded-2xl p-4 border border-neutral-100 max-w-[140px]">
-              <div className="flex items-center gap-2 mb-1">
-                <Award size={16} className="text-primary-600" />
-                <span className="text-xs font-bold text-neutral-900">
-                  8+ Years
-                </span>
-              </div>
-              <p className="text-xs text-neutral-500 leading-tight">
-                Trusted dental care in Puzhal, Chennai
-              </p>
             </div>
           </motion.div>
 
@@ -169,7 +106,7 @@ export default function DoctorProfile() {
             className="space-y-6"
           >
             {/* Stats row */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               {highlights.map(({ icon: Icon, value, label }) => (
                 <div
                   key={label}
