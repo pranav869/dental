@@ -3,14 +3,14 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Menu, X, ChevronDown } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -36,110 +36,125 @@ export default function Navbar() {
   };
 
   return (
-    <>
-      {/* Top bar */}
-      <div className="bg-primary-700 text-white py-1.5 px-4 hidden sm:block">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4 text-xs text-primary-100">
-            <span>📍 Puzhal, Chennai</span>
-            <span className="text-primary-500">|</span>
-            <span>🕐 Mon–Sat: 10 AM–2:30 PM, 4:30–9 PM &nbsp;|&nbsp; Sun: 10 AM–2 PM</span>
+    <div className="sticky top-0 z-50 w-full">
+
+      {/* ── Top info bar ── */}
+      <div className="hidden sm:block bg-neutral-900 text-neutral-300">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
+          {/* Left — location + hours */}
+          <div className="flex items-center gap-5 text-[11px] font-medium tracking-wide">
+            <span className="flex items-center gap-1.5">
+              <span className="text-primary-400">📍</span>
+              Puzhal, Chennai
+            </span>
+            <span className="w-px h-3 bg-neutral-700" />
+            <span className="flex items-center gap-1.5">
+              <span className="text-primary-400">🕐</span>
+              Mon–Sat: 10 AM–2:30 PM &amp; 4:30–9 PM &nbsp;·&nbsp; Sun: 10 AM–2 PM
+            </span>
           </div>
+          {/* Right — phone */}
           <a
             href="tel:08056390607"
-            className="flex items-center gap-1.5 text-xs font-semibold hover:text-primary-200 transition-colors duration-200"
+            className="flex items-center gap-1.5 text-[11px] font-semibold text-white hover:text-primary-400 transition-colors duration-200"
           >
-            <Phone size={12} />
+            <Phone size={11} />
             080563 90607
           </a>
         </div>
       </div>
 
-      {/* Main navbar */}
+      {/* ── Main navbar ── */}
       <motion.header
-        initial={{ y: 0 }}
+        initial={{ opacity: 0, y: -4 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
         className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-300",
+          "w-full transition-all duration-300",
           scrolled
-            ? "bg-white/90 backdrop-blur-xl shadow-[0_2px_24px_rgba(0,0,0,0.08)] border-b border-neutral-100/80"
-            : "bg-white border-b border-neutral-100"
+            ? "bg-white/95 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.07)] border-b border-neutral-100"
+            : "bg-white border-b border-neutral-100/80"
         )}
       >
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[70px]">
-          {/* Logo */}
+        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+
+          {/* Left — Logo */}
           <a
             href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo("#home");
-            }}
-            className="flex items-center gap-3 group"
+            onClick={(e) => { e.preventDefault(); scrollTo("#home"); }}
+            className="flex items-center gap-2.5 group flex-shrink-0"
           >
-            <div className="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
-              <Image src="/carencure.png" alt="Care N Cure Logo" width={40} height={40} className="w-full h-full object-contain" />
+            <div className="w-9 h-9 rounded-lg overflow-hidden flex-shrink-0 group-hover:opacity-90 transition-opacity duration-200">
+              <Image
+                src="/carencure.png"
+                alt="Care N Cure Dental Centre"
+                width={36}
+                height={36}
+                className="w-full h-full object-contain"
+              />
             </div>
-            <div>
-              <span className="font-bold text-xl text-neutral-900 leading-none block tracking-tight">
+            <div className="leading-none">
+              <span className="font-bold text-[16px] text-neutral-900 tracking-tight block">
                 Care N Cure
               </span>
-              <span className="text-xs text-primary-600 font-semibold leading-none tracking-wide uppercase">
+              <span className="text-[10px] font-semibold text-primary-600 tracking-[0.12em] uppercase">
                 Dental Centre
               </span>
             </div>
           </a>
 
-          {/* Desktop links */}
-          <ul className="hidden lg:flex items-center gap-0.5">
+          {/* Center — Nav links */}
+          <ul className="hidden lg:flex items-center">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <button
                   onClick={() => scrollTo(link.href)}
-                  className="relative px-4 py-2 text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors duration-200 group"
+                  className="relative px-4 py-2 text-[13.5px] font-medium text-neutral-500 hover:text-neutral-900 transition-colors duration-200 group"
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary-600 rounded-full transition-all duration-250 group-hover:w-4/5" />
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary-500 rounded-full transition-all duration-200 group-hover:w-3/4" />
                 </button>
               </li>
             ))}
           </ul>
 
-          {/* Right actions */}
-          <div className="hidden lg:flex items-center gap-2.5">
-            {/* Language toggle */}
-            <button
-              onClick={() => setLanguage(language === "en" ? "ta" : "en")}
-              className="flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-lg border border-neutral-200 text-neutral-500 hover:border-primary-300 hover:text-primary-600 transition-all duration-200"
-            >
-              <ChevronDown size={11} />
-              {language === "en" ? "EN | த" : "த | EN"}
-            </button>
+          {/* Right — Open Now + Call + Book */}
+          <div className="hidden lg:flex items-center gap-3">
+            {/* Open Now */}
+            <div className="flex items-center gap-1.5 text-[11.5px] font-semibold text-green-700 bg-green-50 border border-green-200 px-3 py-1.5 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              Open Now
+            </div>
 
+            {/* Call Now — ghost */}
             <a
               href="tel:08056390607"
-              className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-neutral-700 border border-neutral-200 rounded-xl hover:border-primary-300 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+              className="flex items-center gap-2 px-4 py-2 text-[13px] font-semibold text-neutral-700 rounded-xl border border-neutral-200 hover:border-primary-400 hover:text-primary-600 hover:bg-primary-50/60 transition-all duration-200"
             >
-              <Phone size={14} />
-              {t.nav.call}
+              <Phone size={13} />
+              Call Now
             </a>
+
+            {/* Book Appointment — primary CTA */}
             <button
               onClick={() => scrollTo("#appointment")}
-              className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-primary-600 rounded-xl shadow-[0_4px_14px_rgba(14,165,233,0.35)] hover:bg-primary-700 hover:shadow-[0_4px_20px_rgba(14,165,233,0.45)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
+              className="flex items-center gap-2 px-5 py-2.5 text-[13px] font-semibold text-white bg-primary-600 rounded-xl shadow-[0_4px_16px_rgba(14,165,233,0.32)] hover:bg-primary-700 hover:shadow-[0_6px_22px_rgba(14,165,233,0.42)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
             >
-              {t.nav.book}
+              Book Appointment
             </button>
           </div>
 
-          {/* Mobile menu toggle */}
+          {/* Mobile hamburger */}
           <button
-            className="lg:hidden p-2.5 rounded-xl text-neutral-600 hover:bg-neutral-100 active:bg-neutral-200 transition-colors"
+            className="lg:hidden p-2 rounded-lg text-neutral-600 hover:bg-neutral-100 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
         </nav>
 
-        {/* Mobile menu */}
+        {/* ── Mobile menu ── */}
         <AnimatePresence>
           {mobileOpen && (
             <motion.div
@@ -147,37 +162,38 @@ export default function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.22, ease: "easeOut" }}
-              className="lg:hidden border-t border-neutral-100 bg-white/95 backdrop-blur-xl overflow-hidden"
+              className="lg:hidden border-t border-neutral-100 bg-white overflow-hidden"
             >
-              <div className="px-4 py-4 space-y-0.5">
+              <div className="px-4 py-4 space-y-1">
+                {/* Open Now strip */}
+                <div className="flex items-center gap-2 px-3 py-2 mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-[11.5px] font-semibold text-green-700">Open Now · Closes at 9 PM</span>
+                </div>
+
                 {navLinks.map((link) => (
                   <button
                     key={link.href}
                     onClick={() => scrollTo(link.href)}
-                    className="w-full text-left px-4 py-3 text-sm font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-150"
+                    className="w-full text-left px-4 py-3 text-[14px] font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-150"
                   >
                     {link.label}
                   </button>
                 ))}
-                <div className="pt-3 mt-2 border-t border-neutral-100 space-y-2">
+
+                <div className="pt-3 mt-2 border-t border-neutral-100 space-y-2.5">
                   <a
                     href="tel:08056390607"
-                    className="flex items-center gap-2.5 px-4 py-3 text-sm font-semibold text-primary-600 bg-primary-50 hover:bg-primary-100 rounded-xl transition-colors"
+                    className="flex items-center justify-center gap-2 w-full py-3 text-[13.5px] font-semibold text-primary-700 border-2 border-primary-200 bg-primary-50 hover:bg-primary-100 rounded-xl transition-colors"
                   >
-                    <Phone size={16} />
+                    <Phone size={15} />
                     080563 90607
                   </a>
                   <button
                     onClick={() => scrollTo("#appointment")}
-                    className="w-full py-3 text-sm font-semibold text-white bg-primary-600 rounded-xl shadow-[0_4px_14px_rgba(14,165,233,0.3)] hover:bg-primary-700 transition-all"
+                    className="w-full py-3.5 text-[14px] font-semibold text-white bg-primary-600 rounded-xl shadow-[0_4px_14px_rgba(14,165,233,0.3)] hover:bg-primary-700 active:scale-[0.98] transition-all"
                   >
-                    {t.nav.book}
-                  </button>
-                  <button
-                    onClick={() => setLanguage(language === "en" ? "ta" : "en")}
-                    className="w-full text-center text-xs font-semibold px-3 py-2.5 rounded-xl border border-neutral-200 text-neutral-500 hover:border-primary-300 hover:text-primary-600 transition-all"
-                  >
-                    {language === "en" ? "Switch to தமிழ்" : "Switch to English"}
+                    Book Appointment
                   </button>
                 </div>
               </div>
@@ -185,6 +201,6 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </motion.header>
-    </>
+    </div>
   );
 }
