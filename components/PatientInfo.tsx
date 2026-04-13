@@ -17,8 +17,6 @@ const steps = [
     title: "Before Your Visit",
     color: "bg-primary-50 text-primary-600",
     items: [
-      "Bring a valid government-issued ID",
-      "Arrive 10 minutes early to complete forms",
       "List any medications you're currently taking",
       "Note any allergies, especially to anaesthetics",
       "Eat a light meal before your appointment",
