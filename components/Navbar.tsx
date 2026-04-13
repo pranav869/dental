@@ -5,12 +5,14 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useClinicStatus } from "@/hooks/useClinicStatus";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useLanguage();
+  const clinic = useClinicStatus();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -120,10 +122,10 @@ export default function Navbar() {
 
           {/* Right — Open Now + Call + Book */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* Open Now */}
-            <div className="flex items-center gap-1.5 text-[11.5px] font-semibold text-green-700 bg-green-50 border border-green-200 px-3 py-1.5 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-              Open Now
+            {/* Open / Closed status */}
+            <div className={`flex items-center gap-1.5 text-[11.5px] font-semibold px-3 py-1.5 rounded-full border ${clinic.isOpen ? "text-green-700 bg-green-50 border-green-200" : "text-red-600 bg-red-50 border-red-200"}`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${clinic.isOpen ? "bg-green-500 animate-pulse" : "bg-red-500"}`} />
+              {clinic.isOpen ? "Open Now" : "Closed"}
             </div>
 
             {/* Call Now — ghost */}
@@ -165,10 +167,10 @@ export default function Navbar() {
               className="lg:hidden border-t border-neutral-100 bg-white overflow-hidden"
             >
               <div className="px-4 py-4 space-y-1">
-                {/* Open Now strip */}
+                {/* Open / Closed strip */}
                 <div className="flex items-center gap-2 px-3 py-2 mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-[11.5px] font-semibold text-green-700">Open Now · Closes at 9 PM</span>
+                  <span className={`w-1.5 h-1.5 rounded-full ${clinic.isOpen ? "bg-green-500 animate-pulse" : "bg-red-500"}`} />
+                  <span className={`text-[11.5px] font-semibold ${clinic.isOpen ? "text-green-700" : "text-red-600"}`}>{clinic.label}</span>
                 </div>
 
                 {navLinks.map((link) => (

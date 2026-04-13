@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Phone, Calendar, Shield } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useClinicStatus } from "@/hooks/useClinicStatus";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -17,6 +18,7 @@ const fadeUp = {
 
 export default function Hero() {
   const { t } = useLanguage();
+  const clinic = useClinicStatus();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -69,9 +71,9 @@ export default function Hero() {
               animate="visible"
               className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6"
             >
-              <span className="inline-flex items-center gap-1.5 bg-green-500/20 border border-green-400/40 text-green-300 text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
-                Open Now · Closes at 9 PM
+              <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm border ${clinic.isOpen ? "bg-green-500/20 border-green-400/40 text-green-300" : "bg-red-500/20 border-red-400/40 text-red-300"}`}>
+                <span className={`w-1.5 h-1.5 rounded-full inline-block ${clinic.isOpen ? "bg-green-400" : "bg-red-400"}`} />
+                {clinic.label}
               </span>
               <span className="inline-flex items-center gap-2 bg-white/15 border border-white/30 text-white text-sm font-medium px-4 py-1.5 rounded-full backdrop-blur-sm">
                 <Shield size={13} className="text-white" />
