@@ -320,22 +320,6 @@ export default function Appointment() {
                     )}
                   </div>
 
-                  {/* Message */}
-                  <div>
-                    <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                      Additional Notes
-                      <span className="text-neutral-400 font-normal ml-1">
-                        (optional)
-                      </span>
-                    </label>
-                    <textarea
-                      {...register("message")}
-                      rows={2}
-                      placeholder="Any concerns or special requirements..."
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-white text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-400 transition-all"
-                    />
-                  </div>
-
                   <button
                     type="submit"
                     disabled={loading}
