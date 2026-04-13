@@ -128,10 +128,21 @@ export default function FloatingButtons() {
         className="relative group flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-3 rounded-full shadow-strong transition-all duration-200 hover:shadow-xl active:scale-95"
         aria-label="Chat on WhatsApp"
       >
-        {/* Live dot */}
-        <span className="absolute -top-0.5 -right-0.5 flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-400 border-2 border-white" />
+        {/* Live dot with ripple */}
+        <span className="absolute -top-0.5 -right-0.5 flex items-center justify-center h-3.5 w-3.5">
+          <motion.span
+            className="absolute inline-flex rounded-full bg-orange-400"
+            animate={{ scale: [1, 2.2], opacity: [0.55, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
+            style={{ width: "100%", height: "100%" }}
+          />
+          <motion.span
+            className="absolute inline-flex rounded-full bg-orange-300"
+            animate={{ scale: [1, 1.7], opacity: [0.35, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut", delay: 0.3 }}
+            style={{ width: "100%", height: "100%" }}
+          />
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500 border-[1.5px] border-white shadow-sm" />
         </span>
         <WhatsAppIcon />
         <span className="text-sm hidden sm:block">WhatsApp Us</span>
