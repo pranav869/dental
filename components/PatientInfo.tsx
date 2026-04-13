@@ -64,12 +64,8 @@ const faqs = [
     a: "We recommend a check-up every 6 months for most patients. Those with ongoing dental issues or gum disease may need more frequent visits.",
   },
   {
-    q: "Do you accept health insurance?",
-    a: "Yes, we accept most major insurance plans. Please bring your insurance card and we'll handle the paperwork. We also offer easy EMI options for larger procedures.",
-  },
-  {
     q: "What should I do in a dental emergency?",
-    a: "Call us immediately at +91 98765 43210. We reserve slots for dental emergencies every day. If you're in severe pain, go to the nearest emergency room.",
+    a: "Call us immediately at 080563 90607. We reserve slots for dental emergencies every day. If you're in severe pain, go to the nearest emergency room.",
   },
   {
     q: "Are dental X-rays safe?",
