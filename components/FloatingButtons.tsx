@@ -130,8 +130,8 @@ export default function FloatingButtons() {
       >
         {/* Live dot */}
         <span className="absolute -top-0.5 -right-0.5 flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-300 opacity-75" />
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-green-200 border-2 border-green-500" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-400 border-2 border-white" />
         </span>
         <WhatsAppIcon />
         <span className="text-sm hidden sm:block">WhatsApp Us</span>
