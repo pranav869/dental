@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Care N Cure Multi-Speciality Dental Centre | Painless & Advanced Dental Care in Chennai",
   description:
-    "Trusted dental clinic in Puzhal, Chennai. Pain-free treatments for teeth cleaning, implants, root canal, braces & cosmetic dentistry. 8+ years experience. Call +91 97899 69383.",
+    "Trusted dental clinic in Puzhal, Chennai. Pain-free treatments for teeth cleaning, implants, root canal, braces & cosmetic dentistry. 8+ years experience. Call 080563 90607.",
   keywords:
     "dental clinic Puzhal, dentist Chennai, teeth cleaning, dental implants, root canal treatment, braces Chennai, Care N Cure dental",
   openGraph: {

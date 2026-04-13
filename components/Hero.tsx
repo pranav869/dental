@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Phone, Calendar, Star, Shield } from "lucide-react";
@@ -40,13 +41,13 @@ export default function Hero() {
         className="absolute inset-0 -z-10"
         aria-hidden
       >
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/clinic-hero.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+        <Image
+          src="/clinic-hero.webp"
+          alt=""
+          fill
+          priority
+          quality={85}
+          className="object-cover object-center"
         />
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/50" />

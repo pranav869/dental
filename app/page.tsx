@@ -1,14 +1,16 @@
+import dynamic from "next/dynamic";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import DoctorProfile from "@/components/DoctorProfile";
-import PatientInfo from "@/components/PatientInfo";
-import Testimonials from "@/components/Testimonials";
-import Appointment from "@/components/Appointment";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import FloatingButtons from "@/components/FloatingButtons";
+
+const Services      = dynamic(() => import("@/components/Services"));
+const DoctorProfile = dynamic(() => import("@/components/DoctorProfile"));
+const PatientInfo   = dynamic(() => import("@/components/PatientInfo"));
+const Testimonials  = dynamic(() => import("@/components/Testimonials"));
+const Appointment   = dynamic(() => import("@/components/Appointment"));
+const Contact       = dynamic(() => import("@/components/Contact"));
+const Footer        = dynamic(() => import("@/components/Footer"));
+const FloatingButtons = dynamic(() => import("@/components/FloatingButtons"), { ssr: false });
 
 export default function Home() {
   return (
