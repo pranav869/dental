@@ -34,17 +34,10 @@ const treatments = [
   "Other / Consultation",
 ];
 
-const timeSlots = [
-  "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM",
-  "11:00 AM", "11:30 AM", "12:00 PM", "2:00 PM",
-  "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM",
-  "4:30 PM", "5:00 PM", "5:30 PM", "6:00 PM",
-];
 
 export default function Appointment() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [selectedSlot, setSelectedSlot] = useState("");
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const {
@@ -62,14 +55,12 @@ export default function Appointment() {
         phone: data.phone,
         problem: data.treatment,
         date: data.date,
-        time: selectedSlot || "Not specified",
         notes: data.message || "",
         status: "pending",
         createdAt: serverTimestamp(),
       });
       setSubmitted(true);
       reset();
-      setSelectedSlot("");
     } catch (err) {
       console.error("Booking save error:", err);
     } finally {
@@ -327,34 +318,6 @@ export default function Appointment() {
                         {errors.date.message}
                       </p>
                     )}
-                  </div>
-
-                  {/* Time slot picker */}
-                  <div>
-                    <label className="block text-sm font-medium text-neutral-700 mb-2">
-                      Preferred Time Slot
-                      <span className="text-neutral-400 font-normal ml-1">
-                        (optional)
-                      </span>
-                    </label>
-                    <div className="grid grid-cols-4 gap-1.5">
-                      {timeSlots.map((slot) => (
-                        <button
-                          key={slot}
-                          type="button"
-                          onClick={() =>
-                            setSelectedSlot(selectedSlot === slot ? "" : slot)
-                          }
-                          className={`py-2 text-xs font-semibold rounded-lg border transition-all ${
-                            selectedSlot === slot
-                              ? "bg-primary-600 text-white border-primary-600"
-                              : "border-neutral-200 text-neutral-600 hover:border-primary-300 hover:bg-primary-50"
-                          }`}
-                        >
-                          {slot}
-                        </button>
-                      ))}
-                    </div>
                   </div>
 
                   {/* Message */}
