@@ -121,10 +121,6 @@ export default function Appointment() {
                   desc: "Slots available same week for most treatments",
                 },
                 {
-                  title: "Free first consultation",
-                  desc: "No obligation check-up to understand your needs",
-                },
-                {
                   title: "Flexible scheduling",
                   desc: "Morning, afternoon & evening appointments available",
                 },
