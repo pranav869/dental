@@ -51,7 +51,7 @@ export default function DoctorProfile() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.14)]">
-              <div className="absolute inset-0 scale-[1.18] translate-y-[8%]">
+              <div className="absolute inset-0 scale-[1.4] translate-y-[15%]">
                 <Image
                   src="/clinic-doctor.webp"
                   alt="Dr. Basheera BDS — Care N Cure Dental Centre"
