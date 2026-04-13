@@ -39,53 +39,79 @@ export default function FloatingButtons() {
   return (
     <div className="fixed bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end gap-3">
 
-      {/* WhatsApp popup */}
+      {/* Centered modal popup */}
       <AnimatePresence>
         {showPopup && (
           <motion.div
-            initial={{ opacity: 0, y: 12, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="bg-white rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.14)] border border-neutral-100 p-4 w-72 mb-1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center px-4"
+            onClick={closePopup}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white">
-                  <WhatsAppIcon />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
+
+            {/* Modal card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.88, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 8 }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
+              className="relative bg-white rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.2)] w-full max-w-sm mx-auto overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Green header strip */}
+              <div className="bg-green-500 px-6 pt-6 pb-8">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center text-white">
+                      <WhatsAppIcon />
+                    </div>
+                    <div>
+                      <p className="text-white font-bold text-sm leading-tight">Care N Cure Dental</p>
+                      <p className="text-green-100 text-xs">● Typically replies instantly</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={closePopup}
+                    className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors"
+                    aria-label="Close"
+                  >
+                    <X size={15} />
+                  </button>
                 </div>
-                <div>
-                  <p className="text-xs font-bold text-neutral-900 leading-none">Care N Cure Dental</p>
-                  <p className="text-[10px] text-green-600 font-medium mt-0.5">● Online</p>
+                {/* Chat bubble */}
+                <div className="bg-white rounded-xl rounded-tl-none px-4 py-3">
+                  <p className="text-sm font-semibold text-neutral-800">Hi there 👋</p>
+                  <p className="text-sm text-neutral-600 mt-0.5">Need help booking an appointment?</p>
                 </div>
               </div>
-              <button
-                onClick={closePopup}
-                className="w-6 h-6 rounded-full flex items-center justify-center text-neutral-400 hover:text-neutral-600 hover:bg-neutral-100 transition-colors"
-                aria-label="Close"
-              >
-                <X size={14} />
-              </button>
-            </div>
 
-            {/* Message bubble */}
-            <div className="bg-green-50 rounded-xl rounded-tl-none px-3 py-2.5 mb-3">
-              <p className="text-sm text-neutral-800 font-medium">Hi 👋 Need help booking an appointment?</p>
-              <p className="text-xs text-neutral-500 mt-1">Chat with us on WhatsApp for quick assistance.</p>
-            </div>
-
-            {/* CTA */}
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={closePopup}
-              className="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 active:scale-95 text-white text-sm font-semibold py-2.5 rounded-xl transition-all duration-200"
-            >
-              <WhatsAppIcon />
-              Chat on WhatsApp
-            </a>
+              {/* Body */}
+              <div className="px-6 py-5">
+                <p className="text-sm text-neutral-500 text-center mb-5">
+                  Chat with us on WhatsApp for quick assistance — we usually respond within minutes.
+                </p>
+                <a
+                  href={WA_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closePopup}
+                  className="flex items-center justify-center gap-2.5 w-full bg-green-500 hover:bg-green-600 active:scale-[0.98] text-white font-semibold py-3.5 rounded-xl shadow-[0_4px_14px_rgba(34,197,94,0.35)] hover:shadow-[0_4px_20px_rgba(34,197,94,0.45)] transition-all duration-200 text-sm"
+                >
+                  <WhatsAppIcon />
+                  Chat on WhatsApp
+                </a>
+                <button
+                  onClick={closePopup}
+                  className="w-full mt-3 text-xs text-neutral-400 hover:text-neutral-600 transition-colors py-1"
+                >
+                  Maybe later
+                </button>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
