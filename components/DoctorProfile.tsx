@@ -50,18 +50,14 @@ export default function DoctorProfile() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.14)]">
-              <Image
-                src="/clinic-doctor.webp"
-                alt="Dr. Basheera BDS — Care N Cure Dental Centre"
-                fill
-                className="object-cover object-bottom"
-              />
-              {/* Subtle gradient at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-black/40 to-transparent" />
-              <div className="absolute bottom-5 left-5">
-                <p className="text-white font-bold text-lg leading-tight">Dr. Basheera BDS</p>
-                <p className="text-white/80 text-xs font-medium">Multi-Speciality Dental Surgeon</p>
+            <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.14)]">
+              <div className="absolute inset-0 scale-[1.18] translate-y-[8%]">
+                <Image
+                  src="/clinic-doctor.webp"
+                  alt="Dr. Basheera BDS — Care N Cure Dental Centre"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </div>
           </motion.div>
