@@ -40,19 +40,20 @@ export default function Hero() {
         className="absolute inset-0 -z-10"
         aria-hidden
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-teal-50" />
-        {/* Decorative circles */}
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary-100/50 rounded-full blur-3xl translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-100/60 rounded-full blur-3xl -translate-x-1/3" />
-        {/* Subtle grid pattern */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0"
           style={{
-            backgroundImage:
-              "linear-gradient(#0ea5e9 1px, transparent 1px), linear-gradient(to right, #0ea5e9 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+            backgroundImage: "url('/clinic-hero.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/50" />
+        {/* Left-side gradient fade for text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent" />
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent" />
       </motion.div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 w-full">
@@ -65,9 +66,9 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2 bg-primary-50 border border-primary-200 text-primary-700 text-sm font-medium px-4 py-2 rounded-full mb-6"
+              className="inline-flex items-center gap-2 bg-white/15 border border-white/30 text-white text-sm font-medium px-4 py-2 rounded-full mb-6 backdrop-blur-sm"
             >
-              <Shield size={14} className="text-primary-600" />
+              <Shield size={14} className="text-white" />
               {t.hero.badge}
             </motion.div>
 
@@ -76,10 +77,10 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 leading-[1.1] mb-6"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6"
             >
               {t.hero.title}{" "}
-              <span className="text-primary-600 relative">
+              <span className="text-primary-300 relative">
                 {t.hero.titleHighlight}
                 <svg
                   className="absolute -bottom-2 left-0 w-full"
@@ -104,7 +105,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="text-lg text-neutral-500 leading-relaxed mb-8 max-w-lg"
+              className="text-lg text-white/80 leading-relaxed mb-8 max-w-lg"
             >
               {t.hero.subtitle}
             </motion.p>
@@ -125,8 +126,8 @@ export default function Hero() {
                 {t.hero.bookCta}
               </button>
               <a
-                href="tel:+919789969383"
-                className="btn-secondary text-base px-8 py-3.5"
+                href="tel:08056390607"
+                className="btn-outline text-base px-8 py-3.5"
               >
                 <Phone size={18} />
                 {t.hero.callCta}
@@ -139,7 +140,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="flex flex-wrap items-center gap-5 text-sm text-neutral-500"
+              className="flex flex-wrap items-center gap-5 text-sm text-white/70"
             >
               <div className="flex items-center gap-1.5">
                 <div className="flex -space-x-1">
@@ -151,12 +152,12 @@ export default function Hero() {
                     />
                   ))}
                 </div>
-                <span className="font-medium text-neutral-700">4.9/5</span>
+                <span className="font-medium text-white">4.9/5</span>
                 <span>from 50+ reviews</span>
               </div>
-              <span className="text-neutral-200">|</span>
+              <span className="text-white/30">|</span>
               <div className="flex items-center gap-1.5">
-                <Shield size={14} className="text-teal-500" />
+                <Shield size={14} className="text-teal-300" />
                 <span>8+ Years Trusted Care</span>
               </div>
             </motion.div>
