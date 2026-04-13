@@ -125,9 +125,14 @@ export default function FloatingButtons() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1 }}
         onClick={closePopup}
-        className="group flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-3 rounded-full shadow-strong transition-all duration-200 hover:shadow-xl active:scale-95"
+        className="relative group flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-3 rounded-full shadow-strong transition-all duration-200 hover:shadow-xl active:scale-95"
         aria-label="Chat on WhatsApp"
       >
+        {/* Live dot */}
+        <span className="absolute -top-0.5 -right-0.5 flex h-3 w-3">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-300 opacity-75" />
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-green-200 border-2 border-green-500" />
+        </span>
         <WhatsAppIcon />
         <span className="text-sm hidden sm:block">WhatsApp Us</span>
       </motion.a>
