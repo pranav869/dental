@@ -59,7 +59,7 @@ export default function FloatingButtons() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: 8 }}
               transition={{ duration: 0.28, ease: "easeOut" }}
-              className="relative bg-white rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.2)] w-full max-w-sm mx-auto overflow-hidden"
+              className="relative bg-white rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.2)] w-full max-w-xs mx-auto overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Green header strip */}
@@ -108,7 +108,7 @@ export default function FloatingButtons() {
                   onClick={closePopup}
                   className="w-full mt-3 text-xs text-neutral-400 hover:text-neutral-600 transition-colors py-1"
                 >
-                  Maybe later
+                  No thanks
                 </button>
               </div>
             </motion.div>
