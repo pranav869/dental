@@ -57,7 +57,7 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent" />
       </motion.div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-36 w-full">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32 w-full">
         <div>
           {/* Content */}
           <div>
@@ -84,7 +84,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="text-4xl sm:text-5xl lg:text-[64px] font-bold text-white leading-[1.1] mb-6"
+              className="text-[28px] sm:text-4xl lg:text-[60px] font-bold text-white leading-[1.15] mb-4 sm:mb-6"
             >
               {t.hero.title}{" "}
               <span className="text-primary-300 relative">
@@ -112,7 +112,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="text-lg text-white/80 leading-relaxed mb-4 max-w-2xl"
+              className="text-sm sm:text-lg text-white/80 leading-relaxed mb-4 max-w-2xl"
             >
               {t.hero.subtitle}
             </motion.p>
@@ -139,18 +139,18 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="flex flex-col sm:flex-row gap-3 mb-10"
+              className="flex flex-col sm:flex-row gap-3 mb-8"
             >
               <button
                 onClick={() => scrollTo("#appointment")}
-                className="btn-primary text-base px-8 py-3.5"
+                className="btn-primary text-base px-8 py-3.5 w-full sm:w-auto min-h-[48px]"
               >
                 <Calendar size={18} />
                 {t.hero.bookCta}
               </button>
               <a
                 href="tel:08056390607"
-                className="btn-outline text-base px-8 py-3.5"
+                className="btn-outline text-base px-8 py-3.5 w-full sm:w-auto min-h-[48px]"
               >
                 <Phone size={18} />
                 {t.hero.callCta}
@@ -163,7 +163,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="flex items-center gap-2 text-sm text-white/70"
+              className="flex items-center gap-2 text-xs sm:text-sm text-white/70"
             >
               <span className="flex">
                 {[1,2,3,4,5].map(i => <span key={i} className="text-amber-400 text-base">★</span>)}

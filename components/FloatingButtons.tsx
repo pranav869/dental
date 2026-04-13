@@ -37,7 +37,7 @@ export default function FloatingButtons() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <div className="fixed bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-5 sm:bottom-6 right-3 sm:right-6 z-50 flex flex-col items-end gap-2.5 sm:gap-3">
 
       {/* Centered modal popup */}
       <AnimatePresence>
@@ -125,7 +125,7 @@ export default function FloatingButtons() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1 }}
         onClick={closePopup}
-        className="relative group flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-3 rounded-full shadow-strong transition-all duration-200 hover:shadow-xl active:scale-95"
+        className="relative group flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-3 py-2.5 sm:px-4 sm:py-3 rounded-full shadow-strong transition-all duration-200 hover:shadow-xl active:scale-95 min-h-[44px]"
         aria-label="Chat on WhatsApp"
       >
         {/* Live dot with ripple */}
@@ -154,7 +154,7 @@ export default function FloatingButtons() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.1 }}
-        className="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-4 py-3 rounded-full shadow-strong transition-all duration-200 hover:shadow-xl active:scale-95"
+        className="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-3 py-2.5 sm:px-4 sm:py-3 rounded-full shadow-strong transition-all duration-200 hover:shadow-xl active:scale-95 min-h-[44px]"
         aria-label="Call us"
       >
         <Phone size={18} className="flex-shrink-0" />
