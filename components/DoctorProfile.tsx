@@ -19,7 +19,6 @@ const credentials = [
 
 const highlights = [
   { icon: Star, value: "5.0", label: "Google Rating" },
-  { icon: Star, value: "7+", label: "Reviews" },
   { icon: GraduationCap, value: "100%", label: "Painless Focus" },
 ];
 
@@ -80,7 +79,7 @@ export default function DoctorProfile() {
             </div>
 
             {/* Stats — inline premium style */}
-            <div className="flex gap-8 border-y border-neutral-200 py-6">
+            <div className="flex gap-12 border-y border-neutral-200 py-6">
               {highlights.map(({ value, label }) => (
                 <div key={label}>
                   <p className="text-3xl font-bold text-neutral-900">{value}</p>
