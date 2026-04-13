@@ -31,7 +31,7 @@ const contactInfo = [
     label: "Address",
     value: "1st Floor, 31F, GNT Road, Anna Memorial Nagar",
     sub: "Puzhal, Chennai, Kadirvedu, Tamil Nadu 600066",
-    href: "https://www.google.com/maps/search/Care+N+Cure+Multi+Speciality+Dental+Centre+Puzhal+Chennai",
+    href: "https://www.google.com/maps/dir//Care+N+Cure+Multi-Speciality+Dental+Centre,+1st+Floor,+31F,+GNT+Road,+Anna+Memorial+Nagar,+Puzhal,+Chennai,+Kadirvedu,+Tamil+Nadu+600066/@13.1563994,80.2046028,17z",
     color: "bg-rose-50 text-rose-600",
   },
 ];
@@ -167,14 +167,14 @@ export default function Contact() {
           >
             <div className="rounded-2xl overflow-hidden border border-neutral-100 shadow-soft h-[400px] sm:h-[450px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.089374694985!2d80.25616731482218!3d12.97912899084848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525d32b4b8db63%3A0x7c2c8a4a4f4f4f4f!2sAdyar%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.535!2d80.2020279!3d13.1563994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265d3bd78cadd%3A0x503e5a4107bef883!2sCare%20N%20Cure%20Multi-Speciality%20Dental%20Centre!5e0!3m2!1sen!2sin!4v1712840000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="SmileCare Dental Clinic Location"
+                title="Care N Cure Multi-Speciality Dental Centre Location"
               />
             </div>
 
@@ -193,7 +193,7 @@ export default function Contact() {
                 </p>
               </div>
               <a
-                href="https://maps.google.com"
+                href="https://www.google.com/maps/dir//Care+N+Cure+Multi-Speciality+Dental+Centre,+1st+Floor,+31F,+GNT+Road,+Anna+Memorial+Nagar,+Puzhal,+Chennai,+Kadirvedu,+Tamil+Nadu+600066/@13.1563994,80.2046028,17z"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs font-semibold text-primary-600 hover:text-primary-700 whitespace-nowrap flex items-center gap-1"
