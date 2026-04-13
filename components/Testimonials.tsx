@@ -7,34 +7,74 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const reviews = [
   {
-    name: "Patient",
-    initials: "★",
+    name: "Akhil Kumar",
+    initials: "AK",
+    location: "Chennai",
+    treatment: "Root Canal & Surgery",
+    rating: 5,
+    date: "8 months ago",
+    review:
+      "I recently underwent a root canal, third molar surgery, and teeth fixing, and I can honestly say it was an incredible experience. What I feared would be painful turned out to be smooth and absolutely painless. The doctor was so caring, gentle, and attentive, making me feel safe and at ease every step of the way. I'm truly grateful.",
+  },
+  {
+    name: "Sangeetha Manikandan",
+    initials: "SM",
+    location: "Chennai",
+    treatment: "Teeth Cleaning",
+    rating: 5,
+    date: "5 months ago",
+    review:
+      "Excellent service! The dentist was very kind and explained everything clearly. My teeth feel so clean now!",
+  },
+  {
+    name: "Gopika Venkat",
+    initials: "GV",
     location: "Chennai",
     treatment: "Root Canal Treatment",
     rating: 5,
-    date: "Recent",
+    date: "5 months ago",
     review:
       "Excellent treatment... I had painless rootcanal treatment.. thanks to doctor",
   },
   {
-    name: "Google Reviewer",
-    initials: "★",
+    name: "Faritha Meeran",
+    initials: "FM",
+    location: "Chennai",
+    treatment: "Root Canal Treatment",
+    rating: 5,
+    date: "A year ago",
+    review:
+      "I went for root canal treatment. Treatment was performed fully by Dr. Basheera with less pain. Wonderful atmosphere. Very neat and clean. Overall a great experience. Highly recommended dental clinic!!!",
+  },
+  {
+    name: "Vishwa A",
+    initials: "VA",
+    location: "Chennai",
+    treatment: "Dental Consultation",
+    rating: 5,
+    date: "6 months ago",
+    review:
+      "The dr was very polite and patiently answered all my questions, and explained every step of the treatment.",
+  },
+  {
+    name: "Raziya",
+    initials: "R",
     location: "Chennai",
     treatment: "Root Canal & Extraction",
     rating: 5,
-    date: "Recent",
+    date: "A year ago",
     review:
       "Went to Care N Cure for root canal treatment and tooth extraction. Thanks to Dr. Basheera. Such a great experience. Clinic is neatly maintained.",
   },
   {
-    name: "Google Reviewer",
-    initials: "★",
+    name: "Nazeem Uddin",
+    initials: "NU",
     location: "Chennai",
-    treatment: "Root Canal Treatment",
+    treatment: "Dental Treatment",
     rating: 5,
-    date: "Recent",
+    date: "A year ago",
     review:
-      "Exceptional service from start to finish ! Clinic is spotless. And Dr.Basheera is a master of their craft. Best ROOT CANAL EXPERT !!",
+      "Clinic is very neat and tidy. Calm environment and clinic setup. All the dental treatments are done here.",
   },
 ];
 
