@@ -7,34 +7,34 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const reviews = [
   {
-    name: "Riya Ishan",
-    initials: "RI",
+    name: "Patient",
+    initials: "★",
     location: "Chennai",
     treatment: "Root Canal Treatment",
     rating: 5,
-    date: "2 months ago",
+    date: "Recent",
     review:
-      "I treated here for my 4yrs 10 mth baby, for root canal treatment first i was nervous, after that Dr. Basheera mam spoke to me very kindly.... They give well treatment to my son. Their kindness give to confidence to us. Now My son is cured I am so happy. Very well clinic and affordable price to the treatment. Thank you so much mam.",
+      "Excellent treatment... I had painless rootcanal treatment.. thanks to doctor",
   },
   {
-    name: "Roslin D",
-    initials: "RD",
+    name: "Google Reviewer",
+    initials: "★",
     location: "Chennai",
-    treatment: "Teeth Cleaning",
+    treatment: "Root Canal & Extraction",
     rating: 5,
-    date: "4 years ago",
+    date: "Recent",
     review:
-      "Dr. Basheera has done a fabulous job by cleaning my decades and pasted. Nicely done. Well satisfied and impressed by her treatment. Dedicated person. She has given me wow experience. Highly recommend dr she is. Thank you very much doctor.",
+      "Went to Care N Cure for root canal treatment and tooth extraction. Thanks to Dr. Basheera. Such a great experience. Clinic is neatly maintained.",
   },
   {
-    name: "Ashok Kumar",
-    initials: "AK",
+    name: "Google Reviewer",
+    initials: "★",
     location: "Chennai",
     treatment: "Root Canal Treatment",
     rating: 5,
-    date: "3 years ago",
+    date: "Recent",
     review:
-      "Great hospitality and gesture! Went lot of dental clinic before but Dr. Basheera explained a RCT very well and treated without any pain. Highly recommended to all. Best part is cost effective.",
+      "Exceptional service from start to finish ! Clinic is spotless. And Dr.Basheera is a master of their craft. Best ROOT CANAL EXPERT !!",
   },
 ];
 

@@ -55,15 +55,15 @@ export default function Footer() {
             {/* Contact in footer */}
             <div className="space-y-2.5">
               <a
-                href="tel:+919789969383"
+                href="tel:08056390607"
                 className="flex items-center gap-2.5 text-sm text-neutral-400 hover:text-white transition-colors"
               >
                 <Phone size={14} className="text-primary-400" />
-                +91 97899 69383
+                080563 90607
               </a>
               <div className="flex items-start gap-2.5 text-sm text-neutral-400">
                 <MapPin size={14} className="text-primary-400 mt-0.5 flex-shrink-0" />
-                <span>St. Anthony&#39;s Hospital, 1st Cross Street, St Anthony Nagar Camp, Puzhal, Chennai – 600066</span>
+                <span>1st Floor, 31F, GNT Road, Anna Memorial Nagar, Puzhal, Chennai, Kadirvedu, Tamil Nadu 600066</span>
               </div>
             </div>
           </div>
@@ -107,12 +107,16 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-4">Working Hours</h4>
             <div className="space-y-2 text-sm mb-6">
               <div className="flex justify-between text-neutral-400">
-                <span>Mon – Sat</span>
-                <span>9:00 AM – 7:00 PM</span>
+                <span>Mon – Sat (AM)</span>
+                <span>10:00 AM – 2:30 PM</span>
+              </div>
+              <div className="flex justify-between text-neutral-400">
+                <span>Mon – Sat (PM)</span>
+                <span>4:30 PM – 9:00 PM</span>
               </div>
               <div className="flex justify-between text-neutral-400">
                 <span>Sunday</span>
-                <span>Contact for timings</span>
+                <span>10:00 AM – 2:00 PM</span>
               </div>
             </div>
 

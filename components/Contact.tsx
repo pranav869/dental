@@ -13,32 +13,33 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+91 97899 69383",
+    value: "080563 90607",
     sub: "Call us to book an appointment",
-    href: "tel:+919789969383",
+    href: "tel:08056390607",
     color: "bg-primary-50 text-primary-600",
   },
   {
     icon: Clock,
     label: "Working Hours",
-    value: "Open — Contact for timings",
-    sub: "Mon – Sat: 9:00 AM – 7:00 PM",
-    href: "tel:+919789969383",
+    value: "Mon–Sat: 10 AM–2:30 PM, 4:30–9 PM",
+    sub: "Sunday: 10 AM – 2 PM",
+    href: "tel:08056390607",
     color: "bg-teal-50 text-teal-600",
   },
   {
     icon: MapPin,
     label: "Address",
-    value: "St. Anthony's Hospital, 1st Cross Street",
-    sub: "St Anthony Nagar Camp, Puzhal, Chennai – 600066",
-    href: "https://www.google.com/maps/search/Care+N+Cure+Dental+Puzhal+Chennai",
+    value: "1st Floor, 31F, GNT Road, Anna Memorial Nagar",
+    sub: "Puzhal, Chennai, Kadirvedu, Tamil Nadu 600066",
+    href: "https://www.google.com/maps/search/Care+N+Cure+Multi+Speciality+Dental+Centre+Puzhal+Chennai",
     color: "bg-rose-50 text-rose-600",
   },
 ];
 
 const hours = [
-  { day: "Monday – Saturday", time: "9:00 AM – 7:00 PM" },
-  { day: "Sunday", time: "Contact for timings" },
+  { day: "Mon – Sat (Morning)", time: "10:00 AM – 2:30 PM" },
+  { day: "Mon – Sat (Evening)", time: "4:30 PM – 9:00 PM" },
+  { day: "Sunday", time: "10:00 AM – 2:00 PM" },
 ];
 
 export default function Contact() {
@@ -134,7 +135,7 @@ export default function Contact() {
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-teal-500 rounded-full animate-pulse" />
                   <span className="text-sm text-teal-600 font-medium">
-                    Open now — closes at 7:00 PM
+                    Open now — call for current session
                   </span>
                 </div>
               </div>
@@ -182,14 +183,13 @@ export default function Contact() {
               <MapPin size={18} className="text-primary-600 mt-0.5 flex-shrink-0" />
               <div className="flex-1">
                 <p className="text-sm font-semibold text-neutral-900 mb-0.5">
-                  SmileCare Dental Clinic
+                  Care N Cure Multi-Speciality Dental Centre
                 </p>
                 <p className="text-xs text-neutral-600">
-                  42, Gandhi Nagar Main Road, Adyar, Chennai – 600 020
+                  1st Floor, 31F, GNT Road, Anna Memorial Nagar, Puzhal, Chennai
                 </p>
                 <p className="text-xs text-neutral-500 mt-1">
-                  Landmark: Opposite to Adyar Bus Terminus · 5 min walk from
-                  Adyar signal
+                  Kadirvedu, Tamil Nadu 600066
                 </p>
               </div>
               <a
