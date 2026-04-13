@@ -115,7 +115,6 @@ function renderTable(bookings) {
         </td>
         <td>${formatDate(b.date)}</td>
         <td class="problem-cell" title="${escHtml(b.problem || '')}">${escHtml(b.problem || '—')}</td>
-        <td class="problem-cell" title="${escHtml(b.notes || '')}">${escHtml(b.notes || '—')}</td>
         <td>
           <span class="badge ${isCompleted ? 'badge-completed' : 'badge-pending'}">
             ${isCompleted ? '✓ Completed' : '⏳ Pending'}
