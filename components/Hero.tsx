@@ -61,16 +61,22 @@ export default function Hero() {
         <div>
           {/* Content */}
           <div>
-            {/* Trust badge */}
+            {/* Open Now + Trust badge row */}
             <motion.div
               custom={0}
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2 bg-white/15 border border-white/30 text-white text-sm font-medium px-4 py-2 rounded-full mb-6 backdrop-blur-sm"
+              className="flex flex-wrap items-center gap-3 mb-6"
             >
-              <Shield size={14} className="text-white" />
-              {t.hero.badge}
+              <span className="inline-flex items-center gap-1.5 bg-green-500/20 border border-green-400/40 text-green-300 text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
+                Open Now · Closes at 9 PM
+              </span>
+              <span className="inline-flex items-center gap-2 bg-white/15 border border-white/30 text-white text-sm font-medium px-4 py-1.5 rounded-full backdrop-blur-sm">
+                <Shield size={13} className="text-white" />
+                {t.hero.badge}
+              </span>
             </motion.div>
 
             <motion.h1
@@ -106,10 +112,26 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="text-lg text-white/80 leading-relaxed mb-8 max-w-2xl"
+              className="text-lg text-white/80 leading-relaxed mb-4 max-w-2xl"
             >
               {t.hero.subtitle}
             </motion.p>
+
+            {/* Trust checklist */}
+            <motion.div
+              custom={2.5}
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-white/75 mb-8"
+            >
+              {["Experienced Doctors", "Modern Equipment", "Pain-Free Treatment"].map((item) => (
+                <span key={item} className="flex items-center gap-1.5">
+                  <span className="text-teal-400 font-bold">✔</span>
+                  {item}
+                </span>
+              ))}
+            </motion.div>
 
             {/* CTAs */}
             <motion.div
@@ -135,14 +157,20 @@ export default function Hero() {
               </a>
             </motion.div>
 
-            {/* Trust signals */}
+            {/* Google rating */}
             <motion.div
               custom={4}
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="flex flex-wrap items-center gap-5 text-sm text-white/70"
-            />
+              className="flex items-center gap-2 text-sm text-white/70"
+            >
+              <span className="flex">
+                {[1,2,3,4,5].map(i => <span key={i} className="text-amber-400 text-base">★</span>)}
+              </span>
+              <span className="text-white font-semibold">5/5</span>
+              <span>from 29+ Google Reviews</span>
+            </motion.div>
           </div>
 
         </div>
