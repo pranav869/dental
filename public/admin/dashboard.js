@@ -114,7 +114,6 @@ function renderTable(bookings) {
           </a>
         </td>
         <td>${formatDate(b.date)}</td>
-        <td>${escHtml(b.time || '—')}</td>
         <td class="problem-cell" title="${escHtml(b.problem || '')}">${escHtml(b.problem || '—')}</td>
         <td>
           <span class="badge ${isCompleted ? 'badge-completed' : 'badge-pending'}">
