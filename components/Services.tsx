@@ -126,7 +126,7 @@ export default function Services() {
         </motion.div>
 
         {/* Cards grid */}
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
           {services.map((service, i) => {
             const Icon = service.icon;
             return (
@@ -135,7 +135,7 @@ export default function Services() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`group bg-white border border-neutral-100 rounded-2xl p-6 shadow-soft hover:shadow-card transition-all duration-300 ${service.borderColor} cursor-default`}
+                className={`group bg-white border border-neutral-100 rounded-2xl p-5 sm:p-6 shadow-soft hover:shadow-card transition-all duration-300 ${service.borderColor} cursor-default`}
               >
                 {/* Icon + title */}
                 <div className="flex items-start gap-4 mb-4">
@@ -159,12 +159,12 @@ export default function Services() {
                   </div>
                 </div>
 
-                <p className="text-neutral-500 text-sm leading-relaxed mb-4">
+                <p className="text-neutral-500 text-sm leading-[1.65] mb-4">
                   {language === "ta" ? service.descTa : service.description}
                 </p>
 
                 {/* Benefits */}
-                <ul className="space-y-1.5 mb-5">
+                <ul className="space-y-2 mb-5">
                   {(language === "ta" ? service.benefitsTa : service.benefits).map(
                     (b) => (
                       <li
@@ -183,7 +183,7 @@ export default function Services() {
 
                 <button
                   onClick={() => scrollTo("#appointment")}
-                  className={`inline-flex items-center gap-1.5 text-sm font-semibold ${service.accentColor} hover:gap-2.5 transition-all`}
+                  className={`w-full sm:w-auto inline-flex items-center justify-center sm:justify-start gap-1.5 text-sm font-semibold py-2.5 px-4 sm:px-0 sm:py-0 rounded-xl sm:rounded-none border sm:border-0 sm:bg-transparent ${service.accentColor} border-current/20 bg-current/5 hover:gap-2.5 transition-all`}
                 >
                   Book This Treatment
                   <ArrowRight size={14} />
@@ -198,7 +198,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-10 bg-gradient-to-r from-primary-600 to-teal-500 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-4"
+          className="mt-10 bg-gradient-to-r from-primary-600 to-teal-500 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4"
         >
           <div>
             <p className="text-white font-bold text-lg">

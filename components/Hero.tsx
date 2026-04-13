@@ -67,7 +67,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="flex flex-wrap items-center gap-3 mb-6"
+              className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6"
             >
               <span className="inline-flex items-center gap-1.5 bg-green-500/20 border border-green-400/40 text-green-300 text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
@@ -109,7 +109,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="flex flex-wrap gap-x-6 gap-y-2 text-[13px] sm:text-sm text-white/80 mb-8 font-medium"
+              className="flex flex-wrap gap-x-5 gap-y-2 text-[12.5px] sm:text-sm text-white/80 mb-6 sm:mb-8 font-medium"
             >
               {["Experienced Doctors", "Modern Equipment", "Pain-Free Treatment"].map((item) => (
                 <span key={item} className="flex items-center gap-1.5">
@@ -125,7 +125,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-7"
             >
               <button
                 onClick={() => scrollTo("#appointment")}
