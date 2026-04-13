@@ -87,23 +87,9 @@ export default function Hero() {
               className="text-[28px] sm:text-4xl lg:text-[60px] font-bold text-white leading-[1.15] mb-4 sm:mb-6"
             >
               {t.hero.title}{" "}
-              <span className="text-primary-300 relative">
+              <span className="text-primary-300 relative whitespace-nowrap">
                 {t.hero.titleHighlight}
-                <svg
-                  className="absolute -bottom-2 left-0 w-full"
-                  viewBox="0 0 300 12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M2 9C50 4 100 2 150 3C200 4 250 7 298 9"
-                    stroke="#0ea5e9"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    fill="none"
-                    opacity="0.5"
-                  />
-                </svg>
+                <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-400 via-primary-300 to-transparent rounded-full opacity-70" />
               </span>
             </motion.h1>
 
