@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -74,10 +75,8 @@ export default function Navbar() {
             }}
             className="flex items-center gap-3 group"
           >
-            <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-primary-200 group-hover:scale-105 transition-all duration-200">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-                <path d="M12 2C8 2 5 5 5 8c0 2.5 1 5.5 2 8l1.5 4.5c.3.8 1 1.5 1.9 1.5h3.2c.9 0 1.6-.7 1.9-1.5L17 16c1-2.5 2-5.5 2-8 0-3-3-6-7-6z" />
-              </svg>
+            <div className="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
+              <Image src="/carencure.png" alt="Care N Cure Logo" width={40} height={40} className="w-full h-full object-contain" />
             </div>
             <div>
               <span className="font-bold text-xl text-neutral-900 leading-none block tracking-tight">
