@@ -57,9 +57,9 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent" />
       </motion.div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left — copy */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-36 w-full">
+        <div>
+          {/* Content */}
           <div>
             {/* Trust badge */}
             <motion.div
@@ -78,7 +78,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6"
+              className="text-4xl sm:text-5xl lg:text-[64px] font-bold text-white leading-[1.1] mb-6"
             >
               {t.hero.title}{" "}
               <span className="text-primary-300 relative">
@@ -106,7 +106,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="text-lg text-white/80 leading-relaxed mb-8 max-w-lg"
+              className="text-lg text-white/80 leading-relaxed mb-8 max-w-2xl"
             >
               {t.hero.subtitle}
             </motion.p>
@@ -164,70 +164,6 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right — visual card */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative hidden lg:block"
-          >
-            {/* Main card */}
-            <div className="relative bg-white rounded-3xl shadow-strong border border-neutral-100 overflow-hidden">
-              {/* Header bar */}
-              <div className="bg-gradient-to-r from-primary-600 to-teal-500 p-6 pb-16">
-                <p className="text-white/80 text-sm font-medium mb-1">
-                  Next Available Slot
-                </p>
-                <p className="text-white text-2xl font-bold">Today, 3:00 PM</p>
-              </div>
-              {/* Card body */}
-              <div className="-mt-8 mx-4 bg-white rounded-2xl shadow-card p-5 border border-neutral-100 mb-4">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 font-bold text-lg">
-                    Dr
-                  </div>
-                  <div>
-                    <p className="font-semibold text-neutral-900">
-                      Care N Cure Dental
-                    </p>
-                    <p className="text-sm text-neutral-500">
-                      Multi-Speciality — 8+ years exp.
-                    </p>
-                  </div>
-                  <div className="ml-auto flex items-center gap-0.5">
-                    <Star size={12} className="fill-amber-400 text-amber-400" />
-                    <span className="text-sm font-semibold text-neutral-700">
-                      4.9
-                    </span>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  {["9 AM", "11 AM", "3 PM", "5 PM"].map((slot) => (
-                    <button
-                      key={slot}
-                      className={`flex-1 py-2 text-xs font-semibold rounded-lg border transition-all ${
-                        slot === "3 PM"
-                          ? "bg-primary-600 text-white border-primary-600"
-                          : "border-neutral-200 text-neutral-600 hover:border-primary-300"
-                      }`}
-                    >
-                      {slot}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="px-4 pb-5">
-                <button
-                  onClick={() => scrollTo("#appointment")}
-                  className="btn-primary w-full"
-                >
-                  <Calendar size={16} />
-                  Book This Slot
-                </button>
-              </div>
-            </div>
-
-          </motion.div>
         </div>
       </div>
     </section>
