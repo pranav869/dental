@@ -141,14 +141,14 @@ export default function Appointment() {
                 Prefer to call?
               </p>
               <a
-                href="tel:+919789969383"
+                href="tel:08056390607"
                 className="text-white font-bold text-lg hover:text-primary-200 transition-colors flex items-center gap-2"
               >
                 <Phone size={18} />
-                +91 97899 69383
+                080563 90607
               </a>
               <p className="text-primary-200 text-xs mt-1">
-                Mon–Sat: 9 AM – 7 PM
+                Mon–Sat: 10 AM–2:30 PM, 4:30–9 PM
               </p>
             </div>
           </motion.div>

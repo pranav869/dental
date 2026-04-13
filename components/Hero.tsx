@@ -153,8 +153,8 @@ export default function Hero() {
                     />
                   ))}
                 </div>
-                <span className="font-medium text-white">4.9/5</span>
-                <span>from 50+ reviews</span>
+                <span className="font-medium text-white">5.0/5</span>
+                <span>from 7+ reviews</span>
               </div>
               <span className="text-white/30">|</span>
               <div className="flex items-center gap-1.5">
